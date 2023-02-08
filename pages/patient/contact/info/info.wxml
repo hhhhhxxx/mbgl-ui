@@ -1,0 +1,48 @@
+<view class="app-container">
+
+    <view class="head">
+        <image src="../../../../pic/head.jpg" style="width: 200rpx; height: 200rpx; display: block"/>
+    </view>
+
+    <block wx:if="{{state == 0}}">
+        <button class="weui-btn" type="primary" bindtap="subscribe">关注</button>
+    </block>
+    <block wx:elif="{{state == 1}}">
+        <button class="weui-btn" type="warn" bindtap="takeOff">取消关注</button>
+    </block>
+    <block wx:elif="{{state == 2}}">
+        <button class="weui-btn" type="primary">正在申请</button>
+    </block>
+
+
+    <mp-cells>
+        <view class="weui-panel__hd">个人信息</view>
+        <mp-cell value="姓名" footer="{{doctorInfo.name}}"></mp-cell>
+        <mp-cell value="年龄" footer="{{doctorInfo.age}}"></mp-cell>
+        <mp-cell value="性别" footer="{{doctorInfo.sex}}"></mp-cell>
+        <mp-cell value="手机号" footer="{{doctorInfo.phone}}"></mp-cell>
+
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">详细信息</view>
+            <view class="weui-panel__bd">
+
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">科室</view>
+                    <view class="weui-media-box__desc">{{doctorInfo.room}}</view>
+                </view>
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">医龄</view>
+                    <view class="weui-media-box__desc">{{doctorInfo.jobYear}}</view>
+                </view>
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">职位</view>
+                    <view class="weui-media-box__desc">{{doctorInfo.position}}</view>
+                </view>
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">医院</view>
+                    <view class="weui-media-box__desc">{{doctorInfo.hospital}}</view>
+                </view>
+            </view>
+        </view>
+    </mp-cells>
+</view>

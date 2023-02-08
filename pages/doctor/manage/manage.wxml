@@ -1,0 +1,11 @@
+<view class="app-container">
+    <navigator class="bl" url="/pages/patient/data/heart-rate/heart-rate">
+        <text>患者数据异常报告</text>
+    </navigator>
+    <navigator class="bl" url="/pages/patient/data/step-count/step-count">
+        <text>患者健康报告</text>
+    </navigator>
+    <navigator class="bl" url="/pages/patient/data/blood-sugar/blood-sugar">
+        <text>工作安排</text>
+    </navigator>
+</view>

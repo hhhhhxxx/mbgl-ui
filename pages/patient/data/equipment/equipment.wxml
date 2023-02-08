@@ -1,0 +1,33 @@
+
+
+<mp-toptips msg="{{info}}" type="info" show="{{info}}" delay="1500"></mp-toptips>
+<view class="app-container">
+
+    <view class="head">下拉刷新设备列表</view>
+
+
+<!--    <button bindtap="zhendong">振动</button>-->
+    <block wx:if="{{field === 'stepCount'}}">
+        <button bindtap="getStep">获取步数：{{stepCount}}</button>
+    </block>
+    <block wx:elif="{{field === 'heartRate'}}">
+        <button bindtap="getHeartRate">获取心率：{{hrvalue}}</button>
+    </block>
+
+    <view class="head">当前蓝牙设备数量：{{devices.length}}</view>
+
+    <block wx:if="{{devices.length > 0}}"
+           wx:for="{{devices}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="item">
+            <view class="label">{{item.name}}</view>
+            <button  wx:if="{{!item.active}}" type="primary" class="connectBtn" id="{{item.deviceId}}" bindtap="createConnection">连接</button>
+            <button  wx:if="{{item.active}}" type="warn" class="connectBtn" id="{{item.deviceId}}" bindtap="closeConnection">断开</button>
+        </view>
+
+    </block>
+</view>
+
+
+
+
+

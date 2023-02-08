@@ -1,0 +1,49 @@
+<view class="app-container">
+    <mp-form-page title="输入数据">
+        <mp-form id="form" rules="{{rules}}" models="{{form}}">
+            <block wx:if="{{field === 'heartRate'}}">
+                <label>
+                    <mp-cell prop="heartRate" title="心率" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.heartRate}}" data-field="heartRate" class="weui-input"
+                               placeholder="请输入心率"/>
+                    </mp-cell>
+                </label>
+            </block>
+
+            <block wx:if="{{field === 'stepCount'}}">
+                <label>
+                    <mp-cell prop="stepCount" title="步数" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.stepCount}}" data-field="stepCount" class="weui-input"
+                               placeholder="请输入步数"/>
+                    </mp-cell>
+                </label>
+            </block>
+
+
+            <block wx:if="{{field === 'bloodPressure'}}">
+                <label>
+                    <mp-cell prop="bloodPressure1" title="收缩压" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.bloodPressure1}}" data-field="bloodPressure1" class="weui-input"
+                               placeholder="请输入收缩压"/>
+                    </mp-cell>
+                    <mp-cell prop="bloodPressure2" title="舒张压" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.bloodPressure2}}" data-field="bloodPressure2" class="weui-input"
+                               placeholder="请输入舒张压"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'bloodSugar'}}">
+                <label>
+                    <mp-cell prop="bloodSugar" title="血糖" ext-class=" weui-cell_vcode">
+                        <input bindinput="formInputChange" value="{{form.bloodSugar}}" data-field="bloodSugar" class="weui-input"
+                               placeholder="请输入血糖"/>
+                    </mp-cell>
+                </label>
+            </block>
+        </mp-form>
+
+        <view slot="button">
+            <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+        </view>
+    </mp-form-page>
+</view>

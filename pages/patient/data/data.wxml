@@ -1,0 +1,26 @@
+<view class="app-container">
+    <navigator class="bl" url="/pages/patient/data/heart-rate/heart-rate">
+        <text>心率</text>
+    </navigator>
+    <navigator class="bl" url="/pages/patient/data/step-count/step-count">
+        <text>运动步数: {{nowStep}}步</text>
+    </navigator>
+    <navigator class="bl" url="/pages/patient/data/blood-pressure/blood-pressure">
+        <text>清晨血压</text>
+    </navigator>
+    <navigator class="bl" url="/pages/patient/data/blood-sugar/blood-sugar">
+        <text>空腹血糖</text>
+    </navigator>
+<!--    <navigator url="/pages/patient/data/chart/chart">-->
+<!--        <text>数据图像</text>-->
+<!--    </navigator>-->
+
+<!--    <navigator url="/pages/patient/data/equipment/equipment">-->
+<!--        <text>蓝牙</text>-->
+<!--    </navigator>-->
+
+<!--    <button bindtap="btn1">微信登录</button>-->
+    <button bindtap="getUserInfo">获取信息</button>
+    <button bindtap="sendMsg">发送消息</button>
+<!--    <button bindtap="getStep">微信步数</button>-->
+</view>

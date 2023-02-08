@@ -1,0 +1,21 @@
+<view class="app-container">
+    <navigator url="/pages/patient/contact/add/add">
+        <mp-icon class="add" type="field" icon="add" color="black" size="{{25}}"></mp-icon>
+    </navigator>
+
+
+    <mp-cells>
+        <block wx:for="{{doctorList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <mp-cell class="row" bindtap="toDoctorInfo" data-id="{{item.id}}">
+                <view slot="title" style="position: relative;margin-right: 10px;">
+                    <image src="../../../pic/head.jpg" style="width: 50px; height: 50px; display: block"/>
+                </view>
+                <view>{{item.name}}</view>
+                <view style="font-size: 13px;color: #888888;">{{item.room}}</view>
+                <navigator url="/pages/patient/contact/chat/chart?taId={{item.userId}}">
+                    <button class="chatBtn">咨询</button>
+                </navigator>
+            </mp-cell>
+        </block>
+    </mp-cells>
+</view>

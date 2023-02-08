@@ -1,0 +1,42 @@
+.bl {
+  position: relative;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  height: 300rpx;
+  width: 345rpx;
+  display: inline-block;
+  background-color: #8fd3e8;
+  border-radius: 10rpx;
+  box-shadow: 2px 2px 5px rgba(112, 112, 112, 0.3);
+  color: #000000;
+  overflow: hidden;
+}
+.bl text {
+  display: block;
+  margin: 20rpx;
+  font-weight: bolder;
+  font-size: 28rpx;
+}
+.bl::after {
+  position: absolute;
+  content: '';
+  top: 10rpx;
+  right: -100rpx;
+  width: 300rpx;
+  height: 20rpx;
+  background-color: #f0f0f0;
+  box-shadow: 2px 2px 5px rgba(112, 112, 112, 0.3);
+  transform: rotate(45deg);
+}
+.bl:nth-child(1) {
+  background-color: #d0648a;
+}
+.bl:nth-child(2) {
+  background-color: #6be6c1;
+}
+.bl:nth-child(3) {
+  background-color: #b6a2de;
+}
+.bl:nth-child(4) {
+  background-color: #f2d643;
+}

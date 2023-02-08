@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "patient-me": "/pages/patient/me/me",
+    "doctor-me": "/pages/doctor/me/me"
+  }
+}

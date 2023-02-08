@@ -1,0 +1,88 @@
+<view class="app-container">
+    <mp-form-page title="更新信息">
+        <mp-form id="form" rules="{{rules}}" models="{{form}}">
+
+            <block wx:if="{{field === 'name'}}">
+                <label>
+                    <mp-cell prop="name" title="姓名" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.name}}" data-field="name" class="weui-input"
+                               placeholder="请输入姓名"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'age'}}">
+                <label>
+                    <mp-cell prop="age" title="年龄" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.age}}" data-field="age" class="weui-input"
+                               placeholder="请输入年龄"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'phone'}}">
+                <label>
+                    <mp-cell prop="phone" title="手机号" ext-class=" weui-cell_vcode">
+                        <input bindinput="formInputChange" value="{{form.phone}}" data-field="phone" class="weui-input"
+                               placeholder="请输入手机号"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'sex'}}">
+                <mp-cells title="性别">
+                    <mp-checkbox-group prop="sex" multi="{{false}}" bindchange="sexChange">
+                        <mp-checkbox wx:for="{{sexItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}"
+                                     checked="{{item.checked}}"></mp-checkbox>
+                    </mp-checkbox-group>
+                </mp-cells>
+            </block>
+
+            <block wx:if="{{field === 'room'}}">
+                <mp-cells title="科室">
+                    <mp-cell has-header="{{false}}" has-footer="{{false}}" title="" ext-class=""
+                             prop="room">
+                        <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em"
+                                  bindinput="formInputChange" value="{{form.room}}" data-field="room"/>
+                        <view class="weui-textarea-counter">0/200</view>
+                    </mp-cell>
+                </mp-cells>
+            </block>
+
+            <block wx:if="{{field === 'jobYear'}}">
+                <mp-cells title="医龄">
+                    <mp-cell has-header="{{false}}" has-footer="{{false}}" title="" ext-class=""
+                             prop="jobYear">
+                        <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em"
+                                  bindinput="formInputChange" value="{{form.jobYear}}" data-field="jobYear"/>
+                        <view class="weui-textarea-counter">0/200</view>
+                    </mp-cell>
+                </mp-cells>
+            </block>
+
+
+            <block wx:if="{{field === 'position'}}">
+                <mp-cells title="职位">
+                    <mp-cell has-header="{{false}}" has-footer="{{false}}" title="" ext-class=""
+                             prop="position">
+                        <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em"
+                                  bindinput="formInputChange" value="{{form.position}}" data-field="position"/>
+                        <view class="weui-textarea-counter">0/200</view>
+                    </mp-cell>
+                </mp-cells>
+            </block>
+
+            <block wx:if="{{field === 'hospital'}}">
+                <mp-cells title="医院">
+                    <mp-cell has-header="{{false}}" has-footer="{{false}}" title="" ext-class=""
+                             prop="hospital">
+                        <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em"
+                                  bindinput="formInputChange" value="{{form.hospital}}" data-field="hospital"/>
+                        <view class="weui-textarea-counter">0/200</view>
+                    </mp-cell>
+                </mp-cells>
+            </block>
+        </mp-form>
+
+        <view slot="button">
+            <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+        </view>
+    </mp-form-page>
+</view>

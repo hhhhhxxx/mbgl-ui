@@ -1,0 +1,34 @@
+<view class="app-container">
+
+    <view class="head">
+        <image src="../../../../pic/head.jpg" style="width: 200rpx; height: 200rpx; display: block"/>
+    </view>
+
+
+    <mp-cells>
+        <view class="weui-panel__hd">个人信息</view>
+        <mp-cell value="姓名" footer="{{patientInfo.name}}"></mp-cell>
+        <mp-cell value="年龄" footer="{{patientInfo.age}}"></mp-cell>
+        <mp-cell value="性别" footer="{{patientInfo.sex}}"></mp-cell>
+        <mp-cell value="手机号" footer="{{patientInfo.phone}}"></mp-cell>
+
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">详细信息</view>
+            <view class="weui-panel__bd">
+
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">住址</view>
+                    <view class="weui-media-box__desc">{{patientInfo.address}}</view>
+                </view>
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">病史</view>
+                    <view class="weui-media-box__desc">{{patientInfo.history}}</view>
+                </view>
+                <view class="weui-media-box weui-media-box_text box">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">过敏史</view>
+                    <view class="weui-media-box__desc">{{patientInfo.allergy}}</view>
+                </view>
+            </view>
+        </view>
+    </mp-cells>
+</view>

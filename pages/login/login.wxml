@@ -1,0 +1,34 @@
+<view class="we_form_wrap out">
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <mp-toptips msg="{{errorMsg}}" type="error" show="{{errorMsg}}" delay="1500"></mp-toptips>
+    <view class="header">
+        <image class="logo" src="../../pic/logo.png" mode="widthFix" />
+        <view class="title">壹心慢病管理平台</view>
+    </view>
+    <mp-form id="form" rules="{{rules}}" models="{{form}}">
+        <mp-cells>
+            <mp-cell class="form_item" prop="username" title="用户名">
+                <input bindinput="formInputChange" bindfail="tip" value="{{form.username}}" data-field="username" class="weui-input" placeholder="输入用户名" />
+            </mp-cell>
+            <mp-cell class="form_item" prop="password" title="密码">
+                <input bindinput="formInputChange" bindfail="tip" value="{{form.password}}" data-field="password" class="weui-input" placeholder="输入密码" />
+            </mp-cell>
+        </mp-cells>
+        <!-- 提交按钮 -->
+        <view class="submit_btn_wrap">
+            <button class="weui-btn submitBtn" type="primary" bindtap="submitForm">确定</button>
+            <navigator url="/pages/index/register/register">
+                <button class="weui-btn regBtn" type="default">注册</button>
+            </navigator>
+        </view>
+    </mp-form>
+</view>

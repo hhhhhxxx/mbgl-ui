@@ -1,0 +1,52 @@
+<view class="app-container">
+    <mp-cells>
+        <view class="weui-panel__hd">个人信息</view>
+        <mp-cell link url="/pages/doctor/me/update/update?field=name" value="姓名"
+                 footer="{{doctorInfo.name}}"></mp-cell>
+        <mp-cell link url="/pages/doctor/me/update/update?field=age" value="年龄" footer="{{doctorInfo.age}}"></mp-cell>
+        <mp-cell link url="/pages/doctor/me/update/update?field=sex" value="性别" footer="{{doctorInfo.sex}}"></mp-cell>
+        <mp-cell link url="/pages/doctor/me/update/update?field=phone" value="手机号"
+                 footer="{{doctorInfo.phone}}"></mp-cell>
+
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">详细信息</view>
+            <view class="weui-panel__bd">
+
+                <navigator url="/pages/doctor/me/update/update?field=room">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">科室</view>
+                        <view class="weui-media-box__desc">{{doctorInfo.room}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+
+                <navigator url="/pages/doctor/me/update/update?field=jobYear">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">医龄</view>
+                        <view class="weui-media-box__desc">{{doctorInfo.jobYear}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+
+                <navigator url="/pages/doctor/me/update/update?field=position">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">职位</view>
+                        <view class="weui-media-box__desc">{{doctorInfo.position}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+
+                <navigator url="/pages/doctor/me/update/update?field=hospital">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">医生</view>
+                        <view class="weui-media-box__desc">{{doctorInfo.hospital}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </mp-cells>
+
+
+</view>
+

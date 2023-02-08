@@ -1,0 +1,12 @@
+<view class="app-container">
+    <navigator url="/pages/patient/data/input/input?field=bloodSugar">
+        <button>输入血糖</button>
+    </navigator>
+
+    <view class="container">
+        <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </view>
+
+</view>
+
+

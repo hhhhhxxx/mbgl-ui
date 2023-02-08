@@ -1,0 +1,23 @@
+<view class="app-container">
+    <view class="bg sea">
+        <text class="wave"></text>
+        <text class="wave"></text>
+        <text class="wave"></text>
+        <view class="head">
+            <view class="headIcon">
+                <image src="../../../pic/head.jpg" mode="widthFix"></image>
+            </view>
+            <view class="username">{{info.name}}</view>
+        </view>
+    </view>
+
+    <mp-cells>
+        <mp-cell link url="/pages/doctor/me/info/info" value="我的信息"></mp-cell>
+
+        <mp-cell link url="/pages/doctor/me/notice/notice" value="我的消息"></mp-cell>
+
+        <mp-cell link url="/pages/login/login" value="退出登录" bindtap="logout"></mp-cell>
+    </mp-cells>
+
+</view>
+

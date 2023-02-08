@@ -1,0 +1,16 @@
+<view class="app-container">
+
+    <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+
+    <mp-cells>
+        <block wx:for="{{doctorList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <mp-cell bindtap="toDoctorInfo" data-id="{{item.id}}">
+                <view slot="title" style="position: relative;margin-right: 10px;">
+                    <image src="../../../../pic/head.jpg" style="width: 50px; height: 50px; display: block"/>
+                </view>
+                <view>{{item.name}}</view>
+                <view style="font-size: 13px;color: #888888;">{{item.room}}</view>
+            </mp-cell>
+        </block>
+    </mp-cells>
+</view>

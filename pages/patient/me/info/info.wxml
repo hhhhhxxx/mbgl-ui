@@ -1,0 +1,44 @@
+<view class="app-container">
+    <mp-cells>
+        <view class="weui-panel__hd">个人信息</view>
+        <mp-cell link url="/pages/patient/me/update/update?field=name" value="姓名"
+                 footer="{{patientInfo.name}}"></mp-cell>
+        <mp-cell link url="/pages/patient/me/update/update?field=age" value="年龄" footer="{{patientInfo.age}}"></mp-cell>
+        <mp-cell link url="/pages/patient/me/update/update?field=sex" value="性别" footer="{{patientInfo.sex}}"></mp-cell>
+        <mp-cell link url="/pages/patient/me/update/update?field=phone" value="手机号"
+                 footer="{{patientInfo.phone}}"></mp-cell>
+
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">详细信息</view>
+            <view class="weui-panel__bd">
+
+                <navigator url="/pages/patient/me/update/update?field=address">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">住址</view>
+                        <view class="weui-media-box__desc">{{patientInfo.address}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+
+                <navigator url="/pages/patient/me/update/update?field=history">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">病史</view>
+                        <view class="weui-media-box__desc">{{patientInfo.history}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+
+                <navigator url="/pages/patient/me/update/update?field=allergy">
+                    <view class="weui-media-box weui-media-box_text box">
+                        <view class="weui-media-box__title weui-media-box__title_in-text">过敏史</view>
+                        <view class="weui-media-box__desc">{{patientInfo.allergy}}</view>
+                        <mp-icon class="arrow" icon="arrow" color="#b7b7b7" size="{{12}}"></mp-icon>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </mp-cells>
+
+
+</view>
+

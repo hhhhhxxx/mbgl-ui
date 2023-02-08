@@ -1,0 +1,6 @@
+<block wx:if="{{userRole === 1}}">
+    <patient-me></patient-me>
+</block>
+<block wx:if="{{userRole === 2}}">
+    <doctor-me></doctor-me>
+</block>

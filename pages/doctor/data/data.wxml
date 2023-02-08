@@ -1,0 +1,16 @@
+<view class="app-container">
+    <mp-cells>
+        <block wx:for="{{patientList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <mp-cell class="row" bindtap="toPatientInfo" data-id="{{item.id}}">
+                <view  slot="title" style="position: relative;margin-right: 10px;">
+                    <image src="../../../pic/head.jpg" style="width: 50px; height: 50px; display: block"/>
+                </view>
+                <view>{{item.name}}</view>
+                <view style="font-size: 13px;color: #888888;">{{item.age}}岁</view>
+                <navigator url="/pages/doctor/data/detail/detail?patientUserId={{item.userId}}">
+                    <button class="chatBtn">查看数据</button>
+                </navigator>
+            </mp-cell>
+        </block>
+    </mp-cells>
+</view>

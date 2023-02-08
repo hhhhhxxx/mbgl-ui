@@ -1,0 +1,15 @@
+.add {
+  margin: 16px;
+}
+.row {
+  position: relative;
+}
+.chatBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-85%);
+  right: 20rpx;
+  text-align: center;
+  width: 150rpx;
+  height: 80rpx;
+}
