@@ -32,7 +32,7 @@ Page({
     search() {
         doctorApi.getDoctorById(this.data.queryForm.doctorId).then(res => {
 
-            let info = res.response
+            let info = res.data
             info.sex = constant.toSexName(info.sex)
             this.setData({
                 doctorInfo: info
@@ -43,7 +43,7 @@ Page({
     getState() {
         connectApi.state(this.data.queryForm).then(res => {
             this.setData({
-                state: res.response
+                state: res.data
             })
         })
     },

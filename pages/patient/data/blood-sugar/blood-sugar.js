@@ -10,8 +10,8 @@ Page({
             pageSize: 7
         }).then(res=>{
 
-            xList = res.response.x
-            y1List= res.response.y1
+            xList = res.data.x
+            y1List= res.data.y1
 
             this.setData({
                 ec: {
@@ -19,7 +19,7 @@ Page({
                 }
             })
 
-        })
+        }).catch()
     }
 });
 

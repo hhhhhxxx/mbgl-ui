@@ -48,7 +48,7 @@ Page({
 
         noticeApi.pageList(this.data.queryForm).then(res=>{
             this.setData({
-                noticeList: res.response.records
+                noticeList: res.data.records
             })
         })
     },

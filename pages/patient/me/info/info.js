@@ -3,6 +3,7 @@ import storage from "../../../../utils/storage";
 import key from "../../../../utils/key";
 import constant from "../../../../utils/constant";
 
+
 Page({
     data: {
         patientInfo: {}
@@ -22,7 +23,7 @@ Page({
 
         patientApi.getPatientByUserId(user.id).then(res => {
 
-            const info = res.response;
+            const info = res.data;
 
             info.sex = constant.toSexName(info.sex)
 
@@ -30,5 +31,7 @@ Page({
                 patientInfo: info
             })
         })
-    }
+    },
+
+    
 });

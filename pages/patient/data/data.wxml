@@ -19,7 +19,7 @@
 <!--        <text>蓝牙</text>-->
 <!--    </navigator>-->
 
-<!--    <button bindtap="btn1">微信登录</button>-->
+   <button bindtap="btn1">微信登录</button>
     <button bindtap="getUserInfo">获取信息</button>
     <button bindtap="sendMsg">发送消息</button>
 <!--    <button bindtap="getStep">微信步数</button>-->

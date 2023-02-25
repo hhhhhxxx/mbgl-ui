@@ -1,25 +1,40 @@
 import storage from "../../../utils/storage";
 import key from "../../../utils/key";
+import userApi from "../../../api/userApi"
 
 Component({
     properties: {},
     data: {
         info: {
-            name: ''
-        },
-        avatarUrl: null
+            name: '',
+            image: ''
+        }
     },
+
+    pageLifetimes: {
+        show: function() {
+          // 页面被展示
+          let patientDTO = storage.get(key.USER);
+            this.setData({
+                info: {
+                    name: patientDTO.name != '' ? patientDTO.name : patientDTO.username,
+                    image: patientDTO.image != '' ? patientDTO.image : 'https://inews.gtimg.com/news_bt/OzSCOasYS8Hk2wvZK5EymAU0mk6NYgCFw9yL3f496al6wAA/1000'
+                } 
+            })
+        },
+    },
+
 
     lifetimes: {
         attached: function () {
-
-            this.getAvatarUrl()
-
+            let patientDTO = storage.get(key.USER);
             this.setData({
                 info: {
-                    name: storage.get(key.USER).username
-                }
+                    name: patientDTO.name != '' ? patientDTO.name : patientDTO.username,
+                    image: patientDTO.image != '' ? patientDTO.image : 'https://inews.gtimg.com/news_bt/OzSCOasYS8Hk2wvZK5EymAU0mk6NYgCFw9yL3f496al6wAA/1000'
+                } 
             })
+            console.log(this.data.info);
         },
         detached: function () {
             // 在组件实例被从页面节点树移除时执行
@@ -28,18 +43,36 @@ Component({
 
     methods: {
 
-        getAvatarUrl() {
+        getUserInfo () {
+            let patientDTO = storage.get(key.USER);
+            var that = this
+            return new Promise((resolve, reject) => {
+                
+                wx.getUserProfile({
+                    desc: '获取微信头像', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+                    success: (res) => {
+                        console.log("获取用户信息成功", res)
+        
+                        let param = {
+                            image: res.userInfo.avatarUrl,
+                            id: patientDTO.id
+                        }
+                        userApi.uploadImage(param).then()
+                        
+                        let info = that.data.info
 
-            let {avatarUrl} = storage.get(key.WX_USER_INFO)
+                        info.image = res.userInfo.avatarUrl;
+                        thart.setData({info})
 
-            if(!avatarUrl) {
-                avatarUrl = '../../../pic/head.jpg'
-            }
-
-            this.setData({
-                avatarUrl: avatarUrl
+                        resolve(res.userInfo)
+                    },
+                    fail: res => {
+                        console.log("获取用户信息失败", res)
+                        reject(res)
+                    }
+                })
+    
             })
-
         },
 
         logout() {

@@ -62,7 +62,7 @@ Page({
 
         messageApi.getBefore(beforeForm).then(res => {
 
-            let list = [...res.response,...this.data.chatList]
+            let list = [...res.data,...this.data.chatList]
 
             that.setData({
                 chatList: list
@@ -83,7 +83,7 @@ Page({
         }
 
         messageApi.getAfter(afterForm).then(res => {
-            let list = [...this.data.chatList,...res.response,]
+            let list = [...this.data.chatList,...res.data,]
             that.setData({
                 chatList: list,
                 scrollTop: list.length * 415

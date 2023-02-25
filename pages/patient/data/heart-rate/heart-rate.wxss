@@ -1,15 +1,17 @@
 ec-canvas {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
-
 .container {
-    width: 750rpx;
-    height: 750rpx;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+  width: 1000rpx;
+  height: 750rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.container .scroll {
+  width: 100%;
+  height: 750rpx;
 }

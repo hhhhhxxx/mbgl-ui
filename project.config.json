@@ -44,7 +44,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.21.0",
   "appid": "wx15274b796a6c63bb",
-  "projectname": "%E6%85%A2%E7%97%85%E7%AE%A1%E7%90%86",
+  "projectname": "mbgl-ui",
   "debugOptions": {
     "hidedInDevtools": []
   },

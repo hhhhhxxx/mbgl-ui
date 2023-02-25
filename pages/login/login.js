@@ -1,5 +1,5 @@
 // index.js
-import {patientTabBar, doctorTabBar} from '../../utils/tabBarUrl'
+import { patientTabBar, doctorTabBar } from '../../utils/tabBarUrl'
 
 import userApi from "../../api/userApi"
 import message from "../../utils/message"
@@ -19,28 +19,28 @@ Page({
         rules: [
             {
                 name: 'username',
-                rules: [{required: true, message: '请填写用户名'}, {minlength: 3, message: '太短'}]
+                rules: [{ required: true, message: '请填写用户名' }, { minlength: 3, message: '太短' }]
             },
             {
                 name: 'password',
-                rules: {required: true, message: '请填写密码'},
+                rules: { required: true, message: '请填写密码' },
             }
         ],
     },
 
-    onLoad(query) {
+    onLoad (query) {
     },
 
-    formInputChange(e) {
-        const {field} = e.currentTarget.dataset
+    formInputChange (e) {
+        const { field } = e.currentTarget.dataset
         this.setData({
             [`form.${field}`]: e.detail.value
         })
     },
 
-    submitForm() {
+    submitForm () {
 
-        const {username, password} = this.data.form
+        const { username, password } = this.data.form
 
 
         this.selectComponent('#form').validate((valid, errors) => {
@@ -57,29 +57,47 @@ Page({
                 // 登录请求
                 userApi.login(this.data.form).then(res => {
                     message.success("登录成功")
+                    console.log("这里")
+                    this.setRole(res.data.roleId)
 
-                    this.setRole(res.response.roleId)
-
-                    storage.set(key.USER,res.response)
-                }).catch(res => {
-                    message.info('登录失败')
-                })
+                    storage.set(key.USER, res.data)
+                }).catch()
             }
         })
     },
 
-    setRole(roleId) {
+    setRole (roleId) {
 
-        if(roleId === 1) {
+        if (roleId === 1) {
             app.globalData.tabBarList = patientTabBar
             app.globalData.userRole = 1
-        } else if(roleId === 2) {
+        } else if (roleId === 2) {
             app.globalData.tabBarList = doctorTabBar
             app.globalData.userRole = 2
         }
 
         wx.switchTab({
             url: '/pages/tab1/tab1'
+        })
+    },
+
+
+    loginWeixin (e) {
+        const that = this
+        
+        wx.login({
+            success(res) {
+                userApi.wxLogin({
+                    code: res.code
+                }).then(res => {
+                    let user = res.data
+                    message.success("登录成功")
+                    that.setRole(res.data.roleId)
+                    storage.set(key.USER,user)
+
+     
+                })
+            }
         })
     }
 })

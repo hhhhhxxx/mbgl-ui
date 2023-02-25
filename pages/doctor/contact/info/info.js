@@ -28,7 +28,7 @@ Page({
     search() {
         patientApi.getPatientById(this.data.queryForm.patientId).then(res => {
 
-            let info = res.response
+            let info = res.data
             info.sex = constant.toSexName(info.sex)
             this.setData({
                 patientInfo: info

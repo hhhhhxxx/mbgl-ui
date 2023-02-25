@@ -14,7 +14,7 @@ Page({
         field: null,
 
         form: {
-            userId: null,
+            id: null,
             name: null,
             age: null,
             sex: null,
@@ -53,10 +53,10 @@ Page({
     },
     onLoad: function (options) {
         const user = storage.get(key.USER)
+        let temp = this.data.form
+        temp.id = user.id;
         this.setData({
-            form: {
-                userId: user.id
-            },
+            form: temp,
             field: options.field
         })
 
@@ -119,9 +119,7 @@ Page({
                     wx.navigateBack({
                         url: '/pages/doctor/me/info/info'
                     })
-                }).catch(res => {
-                    message.error(res.response)
-                })
+                }).catch()
 
 
             }

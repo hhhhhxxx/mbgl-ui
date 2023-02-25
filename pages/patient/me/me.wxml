@@ -1,3 +1,4 @@
+<meta name="referrer" content="no-referrer" />
 <view class="app-container">
     <view class="bg sea">
         <text class="wave"></text>
@@ -5,7 +6,7 @@
         <text class="wave"></text>
         <view class="head">
             <view class="headIcon">
-                <image src="{{avatarUrl}}" mode="widthFix"></image>
+                <image referrer="no-referrer|origin|unsafe-url" src="{{info.image}}" mode="aspectFill" bindtap="getUserInfo"></image>
             </view>
             <view class="username">{{info.name}}</view>
         </view>
@@ -16,6 +17,8 @@
 
         <mp-cell link url="/pages/patient/me/notice/notice" value="我的消息"></mp-cell>
 
+        <mp-cell link url="/pages/patient/me/notice/notice" value="我的订单"></mp-cell>
+        
         <mp-cell link url="/pages/login/login" value="退出登录" bindtap="logout"></mp-cell>
     </mp-cells>
 

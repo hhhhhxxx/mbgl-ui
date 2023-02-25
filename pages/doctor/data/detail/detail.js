@@ -33,19 +33,19 @@ Page({
             pageSize: 7
         }).then(res=>{
 
-            x1 = res.response.x1
-            y1= res.response.y1
+            x1 = res.data.x1
+            y1= res.data.y1
 
-            x2 = res.response.x2
-            y2= res.response.y2
+            x2 = res.data.x2
+            y2= res.data.y2
 
-            x3 = res.response.x3
-            y31= res.response.y31
-            y32= res.response.y32
+            x3 = res.data.x3
+            y31= res.data.y31
+            y32= res.data.y32
 
 
-            x4 = res.response.x4
-            y4= res.response.y4
+            x4 = res.data.x4
+            y4= res.data.y4
 
             this.setData({
                 ec1: {

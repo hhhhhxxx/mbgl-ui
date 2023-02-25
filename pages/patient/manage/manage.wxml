@@ -11,4 +11,8 @@
     <navigator class="bl" url="/pages/patient/data/step-count/step-count">
         <text>膳食管理</text>
     </navigator>
+
+        <navigator class="bl" url="/pages/patient/drug/index/index">
+        <text>网上药店</text>
+    </navigator>
 </view>

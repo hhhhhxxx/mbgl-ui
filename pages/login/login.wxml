@@ -31,4 +31,7 @@
             </navigator>
         </view>
     </mp-form>
+
+
+    <button bindtap="loginWeixin">微信登录</button>
 </view>

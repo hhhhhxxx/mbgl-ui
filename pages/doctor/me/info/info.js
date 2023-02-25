@@ -22,7 +22,7 @@ Page({
 
         doctorApi.getDoctorByUserId(user.id).then(res => {
 
-            const info = res.response;
+            const info = res.data;
 
             info.sex = constant.toSexName(info.sex)
 

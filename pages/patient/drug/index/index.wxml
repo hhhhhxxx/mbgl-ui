@@ -1,0 +1,20 @@
+<view class="app-container">
+    <mp-searchbar bindselectresult="selectResult" search="{{search}}" bindclear="doClear"></mp-searchbar>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <button class="weui-btn" type="default">{{array[index]}}</button>
+    </picker>
+    <mp-cells>
+        <block wx:for="{{drugList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <navigator url="/pages/patient/drug/info/info?drugId={{item.id}}">
+                <mp-cell class="row" bindtap="" data-id="{{item.id}}">
+                    <view class="head" slot="title">
+                        <image src="{{item.image.toFixed(2)}}" mode="aspectFill" />
+                    </view>
+                    <view class="name">{{item.name}}</view>
+                    <view class="info">{{item.info}}</view>
+                    <view class="price">￥{{item.price}}</view>
+                </mp-cell>
+            </navigator>
+        </block>
+    </mp-cells>
+</view>

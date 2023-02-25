@@ -7,7 +7,7 @@
                 </view>
                 <view>{{item.name}}</view>
                 <view style="font-size: 13px;color: #888888;">{{item.age}}岁</view>
-                <navigator url="/pages/doctor/contact/chat/chart?taId={{item.userId}}">
+                <navigator url="/pages/doctor/contact/chat/chart?taId={{item.id}}">
                     <button class="chatBtn">聊天</button>
                 </navigator>
             </mp-cell>

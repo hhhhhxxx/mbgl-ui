@@ -10,16 +10,15 @@ Page({
             pageSize: 7
         }).then(res=>{
 
-            xList = res.response.x
-            y1List= res.response.y1
-            y2List= res.response.y2
+            xList = res.data.x
+            y1List= res.data.y1
+            y2List= res.data.y2
             this.setData({
                 ec: {
                     onInit: initChart
                 }
             })
-
-        })
+        }).catch()
     }
 });
 

@@ -1,11 +1,12 @@
 // 公共url
+import message from "./message";
 import storage from "./storage";
 
-// const baseUrl = "http://localhost:8080"
+const baseUrl = "http://localhost:8080"
 // const baseUrl = "http://192.168.0.106:8080"
 
 // const baseUrl = 'http://172.20.10.3:8080'
-const baseUrl = 'http://192.168.1.105:8080'
+// const baseUrl = 'http://192.168.1.101:8080';
 
 
 async function request(url, params, header, method = 'get') {
@@ -20,14 +21,18 @@ async function request(url, params, header, method = 'get') {
             method: method,
 
             success: (res) => {
+                console.log(res)
                 if (res.data.code === 1) {
                     resolve(res.data)
                 } else {
+                    if(res.data.hasOwnProperty('message') && res.data.message != '') {
+                        message.error(res.data.message)
+                    }
                     reject(res.data)
                 }
             },
             fail: (err) => {
-                reject(err)
+                message.error("服务未找到")
             }
         });
     })

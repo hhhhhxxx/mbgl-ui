@@ -2,7 +2,11 @@ import * as echarts from "../../../../ec-canvas/echarts";
 import recordApi from "../../../../api/recordApi";
 
 Page({
-    data: {},
+    data: {
+        ec: {
+            onInit: initChart
+        }
+    },
     onLoad: function (options) {
         recordApi.getWeekData({
             type: 1,
@@ -10,8 +14,8 @@ Page({
             pageSize: 7
         }).then(res=>{
 
-            xList = res.response.x
-            y1List= res.response.y1
+            xList = res.data.x
+            y1List= res.data.y1
 
             this.setData({
                 ec: {
@@ -19,7 +23,8 @@ Page({
                 }
             })
 
-        })
+        }).catch()
+    
     }
 });
 
@@ -35,7 +40,7 @@ function initChart(canvas, width, height, dpr) {
     });
 
 
-
+    console.log('多少次')
     canvas.setChart(chart);
 
     var option = {

@@ -14,7 +14,7 @@ Page({
         field: null,
 
         form: {
-            userId: null,
+            id: null,
             name: null,
             age: null,
             sex: null,
@@ -52,18 +52,21 @@ Page({
     },
     onLoad: function (options) {
         const user = storage.get(key.USER)
+        let temp = this.data.form
+        temp.id = user.id;
         this.setData({
-            form: {
-                userId: user.id
-            },
+            form: temp,
             field: options.field
         })
 
         const field = this.data.field
+        
         patientApi.getPatientByUserId(user.id).then(res => {
             this.setData({
-                [`form.${field}`]: res.response[`${field}`]
+                [`form.${field}`]: res.data[`${field}`]
             })
+
+
 
             if (field == 'sex') {
                 const sexItems = this.data.sexItems;
@@ -114,12 +117,23 @@ Page({
 
                 patientApi.updatePatient(this.data.form).then(res => {
                     message.success('成功提交')
+                    
+                    if(this.data.form.name != '') {
+                        let patient = storage.get(key.USER)
+
+                        patient.name = this.data.form.name
+            
+                        storage.set(key.USER,patient)
+                    }
+
+
+
 
                     wx.navigateBack({
                         url: '/pages/patient/me/info/info'
                     })
                 }).catch(res => {
-                    message.error(res.response)
+                    message.error(res.data)
                 })
 
 

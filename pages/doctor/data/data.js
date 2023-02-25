@@ -39,7 +39,7 @@ Component({
             const that = this
             patientApi.getPatientPage(this.data.queryForm).then(res=>{
                 that.setData({
-                    patientList: res.response.records
+                    patientList: res.data.records
                 })
             })
 

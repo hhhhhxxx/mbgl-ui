@@ -128,6 +128,13 @@
           "name": "",
           "pathName": "pages/tab3/tab3",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "drugIndex",
+          "pathName": "pages/patient/drug/index/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
