@@ -1,1 +1,5 @@
 /* pages/patient/drug/info/info.wxss */
+.app-container image {
+  width: 750rpx;
+  height: 750rpx;
+}

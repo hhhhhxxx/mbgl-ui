@@ -135,6 +135,13 @@
           "name": "drugIndex",
           "pathName": "pages/patient/drug/index/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/drug/info/info",
+          "query": "drugId=1",
           "scene": null,
           "launchMode": "default"
         }

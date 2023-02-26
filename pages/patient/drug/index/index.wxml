@@ -1,19 +1,16 @@
 <view class="app-container">
-    <mp-searchbar bindselectresult="selectResult" search="{{search}}" bindclear="doClear"></mp-searchbar>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <button class="weui-btn" type="default">{{array[index]}}</button>
-    </picker>
+    <van-search value="{{queryForm.name}}" placeholder="请输入搜索关键词" show-action bind:search="onSearch" bind:clear="onClear" bind:change="onChange" />
+    <van-tabs swipeable bind:change="onChangeTag" active="{{ active }}">
+        <van-tab title="{{array[0]}}" name="0"></van-tab>
+        <van-tab title="{{array[1]}}" name="1"></van-tab>
+        <van-tab title="{{array[2]}}" name="2"></van-tab>
+        <van-tab title="{{array[3]}}" name="3"></van-tab>
+        <van-tab title="{{array[4]}}" name="4"></van-tab>
+    </van-tabs>
     <mp-cells>
         <block wx:for="{{drugList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
             <navigator url="/pages/patient/drug/info/info?drugId={{item.id}}">
-                <mp-cell class="row" bindtap="" data-id="{{item.id}}">
-                    <view class="head" slot="title">
-                        <image src="{{item.image.toFixed(2)}}" mode="aspectFill" />
-                    </view>
-                    <view class="name">{{item.name}}</view>
-                    <view class="info">{{item.info}}</view>
-                    <view class="price">￥{{item.price}}</view>
-                </mp-cell>
+                <van-card price="{{item.price}}" desc="{{item.info}}" title="{{item.name}}" thumb="https://img.yzcdn.cn/vant/cat.jpeg" />
             </navigator>
         </block>
     </mp-cells>

@@ -1,69 +1,64 @@
 {
-  "pages": [
-    "pages/login/login",
-
-    "pages/tab1/tab1",
-    "pages/tab2/tab2",
-    "pages/tab3/tab3",
-    "pages/tab4/tab4",
-
-    "pages/patient/me/info/info",
-    "pages/patient/me/update/update",
-    "pages/patient/me/notice/notice",
-    "pages/patient/contact/add/add",
-    "pages/patient/contact/info/info",
-    
-    "pages/patient/drug/index/index",
-    "pages/patient/drug/info/info",
-
-    "pages/doctor/me/info/info",
-    "pages/doctor/me/update/update",
-    "pages/doctor/me/notice/notice",
-    "pages/doctor/contact/info/info",
-    "pages/doctor/contact/chat/chart",
-
-    "pages/patient/data/heart-rate/heart-rate",
-    "pages/patient/data/step-count/step-count",
-    "pages/patient/data/blood-pressure/blood-pressure",
-    "pages/patient/data/blood-sugar/blood-sugar",
-    "pages/patient/data/input/input",
-    "pages/patient/data/equipment/equipment",
-    "pages/patient/contact/chat/chart",
-    "pages/doctor/data/detail/detail",
-    "pages/doctor/manage/manage",
-    "pages/patient/manage/remind-medicine/remind-medicine"
-  ],
-  "window": {
-    "enablePullDownRefresh": true,
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "custom": true,
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "position": "bottom",
-    "list": [
-      {
-        "pagePath": "pages/tab1/tab1"
-      },
-      {
-        "pagePath": "pages/tab2/tab2"
-      },
-      {
-        "pagePath": "pages/tab3/tab3"
-      },
-      {
-        "pagePath": "pages/tab4/tab4"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json",
-  "useExtendedLib": {
-    "weui": true
-  }
+    "pages": [
+        "pages/login/login",
+        "pages/tab1/tab1",
+        "pages/tab2/tab2",
+        "pages/tab3/tab3",
+        "pages/tab4/tab4",
+        "pages/patient/me/info/info",
+        "pages/patient/me/update/update",
+        "pages/patient/me/notice/notice",
+        "pages/patient/contact/add/add",
+        "pages/patient/contact/info/info",
+        "pages/patient/drug/index/index",
+        "pages/patient/drug/info/info",
+        "pages/doctor/me/info/info",
+        "pages/doctor/me/update/update",
+        "pages/doctor/me/notice/notice",
+        "pages/doctor/contact/info/info",
+        "pages/doctor/contact/chat/chart",
+        "pages/patient/data/heart-rate/heart-rate",
+        "pages/patient/data/step-count/step-count",
+        "pages/patient/data/blood-pressure/blood-pressure",
+        "pages/patient/data/blood-sugar/blood-sugar",
+        "pages/patient/data/input/input",
+        "pages/patient/data/equipment/equipment",
+        "pages/patient/contact/chat/chart",
+        "pages/doctor/data/detail/detail",
+        "pages/doctor/manage/manage",
+        "pages/patient/manage/remind-medicine/remind-medicine"
+    ],
+    "window": {
+        "enablePullDownRefresh": true,
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#7A7E83",
+        "selectedColor": "#3cc51f",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/tab1/tab1"
+            },
+            {
+                "pagePath": "pages/tab2/tab2"
+            },
+            {
+                "pagePath": "pages/tab3/tab3"
+            },
+            {
+                "pagePath": "pages/tab4/tab4"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+        "weui": true
+    }
 }

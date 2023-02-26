@@ -2,7 +2,8 @@ import drugApi from "../../../../api/drugApi"
 
 Page({
     data: {
-        array: ['全部','中成药', '中药饮片', '西药', '其他'],
+        active: 0,
+        array: ['全部', '中成药', '中药饮片', '西药', '其他'],
         index: 0,
         drugList: [],
         queryForm: {
@@ -13,23 +14,17 @@ Page({
         }
     },
     onLoad: function (options) {
-
-        this.setData({
-            search: this.search.bind(this)
-        })
-
         this.searchDrugView();
     },
 
-    onShow() {
-        if(this.drugApi == []) {
+    onShow () {
+        if (this.drugApi == []) {
             this.searchDrugView();
         }
-
     },
 
 
-    bindPickerChange: function(e) {
+    bindPickerChange: function (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             index: e.detail.value
@@ -37,38 +32,47 @@ Page({
 
         let query = this.data.queryForm;
         query.classification = e.detail.value
-        this.setData({queryForm: query})
+        this.setData({ queryForm: query })
 
         this.searchDrugView()
     },
 
-    search: function (value) {
-        const that = this
-
-        return new Promise((resolve, reject) => {
-            
-            let query = this.data.queryForm;
-            query.name = value
-            this.setData({queryForm: query})
-            this.searchDrugView()
-            resolve([])
-        })
+    onChange (e) {
+        let query = this.data.queryForm;
+        query.name = e.detail
+        this.setData({
+            queryForm: query,
+        });
     },
-    
-    doClear() {
+
+    onSearch () {
+        console.log(4234)
+        const that = this
+        this.searchDrugView()
+    },
+    onClear () {
         let query = this.data.queryForm;
         query.name = ''
-        this.setData({queryForm: query})
+        this.setData({ 
+            queryForm: query 
+        })
         this.searchDrugView()
     },
-    
-    searchDrugView() {
+
+    searchDrugView () {
         const that = this
         drugApi.pageDrugView(this.data.queryForm).then(res => {
             that.setData({
                 drugList: res.data.records
             })
         })
+    },
+
+    onChangeTag (event) {
+        let query = this.data.queryForm;
+        query.classification = event.detail.name
+        this.setData({ queryForm: query })
+        this.searchDrugView()
     }
 });
 

@@ -1,2 +1,19 @@
-<!--pages/patient/drug/info/info.wxml-->
-<text>pages/patient/drug/info/info.wxml</text>
+<view class="app-container">
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+    <van-cell-group inset>
+        <van-cell title="名称" value="{{drug.name}}" />
+        <van-cell title="价格" value="{{drug.price}}" />
+        <van-cell title="详情" value="{{drug.info}}" />
+        <van-cell title="用法" value="{{drug.usages}}" />
+        <van-cell title="单位" value="{{drug.unit}}" />
+        <van-cell title="有效期" value="{{drug.validMonth}}" />
+        <van-cell title="处方药" value="{{drug.prescription}}" />
+        <van-cell title="种类" value="{{drug.classification}}" />
+    </van-cell-group>
+    <van-goods-action>
+        <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+        <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+        <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
+        <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+    </van-goods-action>
+</view>
