@@ -1,36 +1,42 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">聊天</view>
+    <view class="action" slot="right">
+        <view class="cu-load load-icon {{isLoad?'loading':'over'}}"></view>
+    </view>
+</cu-custom>
 <view class="app-container">
-
-
-    <scroll-view class="scroll-view" scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower"
-                 scroll-top="{{scrollTop}}">
+    <view class="cu-chat">
         <block wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-            <view class="right" wx:if="{{item.sendUserId == form.receiveUserId}}">
-                <view class="top">
-                    <image class="head" src="../../../../pic/head.jpg"></image>
+            <view class="cu-item self" wx:if="{{item.sendUserId == form.sendUserId}}">
+                <view class="main">
+                    <view class="content bg-green shadow">
+                        <text>{{item.content}}</text>
+                    </view>
                 </view>
-                <view class="bot">
-                    <text class="content">{{item.content}}</text>
-                </view>
+                <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big107000.jpg);"></view>
+                <view class="date">{{item.createTime}}</view>
             </view>
-            <view class="left" wx:if="{{item.sendUserId == form.sendUserId}}">
-                <view class="top">
-                    <image class="head" src="../../../../pic/head.jpg"></image>
+            <view class="cu-item" wx:if="{{item.sendUserId == form.receiveUserId}}">
+                <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
+                <view class="main">
+                    <view class="content shadow">
+                        <text>{{item.content}}</text>
+                    </view>
                 </view>
-                <view class="bot">
-                    <text class="content">{{item.content}}</text>
-                </view>
+                <view class="date">{{item.createTime}}</view>
             </view>
         </block>
-    </scroll-view>
-
-    <view class="input">
-        <mp-form  class="textForm" id="form" rules="{{rules}}" models="{{form}}">
-            <mp-cell>
-                <input bindinput="formInputChange" value="{{form.content}}" data-field="content" class="inputFrame"
-                       placeholder="输入你的文字"/>
-            </mp-cell>
-        </mp-form>
-
-        <button class="inputBtn" type="primary" bindtap="submitForm">发送</button>
+    </view>
+    <!-- 输入 -->
+    <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+        <view class="action">
+            <text class="cuIcon-sound text-grey"></text>
+        </view>
+        <input bindinput="formInputChange" value="{{content}}" data-field="content" class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+        <view class="action">
+            <text class="cuIcon-emojifill text-grey"></text>
+        </view>
+        <button class="cu-btn bg-green shadow" bindtap="submitForm">发送</button>
     </view>
 </view>

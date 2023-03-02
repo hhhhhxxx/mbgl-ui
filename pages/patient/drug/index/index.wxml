@@ -1,3 +1,6 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">网上药店</view>
+</cu-custom>
 <view class="app-container">
     <van-search value="{{queryForm.name}}" placeholder="请输入搜索关键词" show-action bind:search="onSearch" bind:clear="onClear" bind:change="onChange" />
     <van-tabs swipeable bind:change="onChangeTag" active="{{ active }}">
@@ -10,8 +13,24 @@
     <mp-cells>
         <block wx:for="{{drugList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
             <navigator url="/pages/patient/drug/info/info?drugId={{item.id}}">
-                <van-card price="{{item.price}}" desc="{{item.info}}" title="{{item.name}}" thumb="https://img.yzcdn.cn/vant/cat.jpeg" />
+                <van-card price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" thumb="https://img.yzcdn.cn/vant/cat.jpeg" />
             </navigator>
         </block>
     </mp-cells>
+    <van-goods-action>
+        <van-goods-action-icon class="icon" bind:tap="onClickShopList" icon="cart-o" text="购物清单" info="{{shopList.length}}" />
+    </van-goods-action>
+
+
+        <!-- 购物清单 -->
+    <van-action-sheet class="shopList" show="{{isShwoShopList}}" title="购物清单" bind:close="onCloseShopList">
+        <block wx:for="{{shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <van-card class="out-card" price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" num="{{item.quantity}}" thumb="">
+                <view slot="footer">
+                    <van-stepper value="{{item.quantity}}" data-index="{{index}}" bind:change="onChangeShopListItemNum"/>
+                </view>
+            </van-card>
+        </block>
+        <van-submit-bar price="{{total}}" button-text="提交订单" bind:submit="onSubmit" />
+    </van-action-sheet>
 </view>

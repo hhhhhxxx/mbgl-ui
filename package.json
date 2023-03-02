@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@vant/weapp": "^1.10.13",
-    "crypto-js": "^4.1.1"
+    "crypto-js": "^4.1.1",
+    "decimal.js": "^10.4.3"
   }
 }

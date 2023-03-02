@@ -1,15 +1,17 @@
+<cu-custom bgColor="bg-while" isCustom="{{true}}"><view slot="content">操作条</view></cu-custom>
+
 <view class="we_form_wrap out">
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <text></text>
-    <mp-toptips msg="{{errorMsg}}" type="error" show="{{errorMsg}}" delay="1500"></mp-toptips>
+    <text class="star"></text>
+    <text class="star"></text> 
+    <text class="star"></text>
+    <text class="star"></text>
+    <text class="star"></text>
+    <text class="star"></text>
+    <text class="star"></text>
+    <text class="star"></text>
+    <text class="star"></text>
+    <text class="star"></text>
+    
     <view class="header">
         <image class="logo" src="../../pic/logo.png" mode="widthFix" />
         <view class="title">壹心慢病管理平台</view>
@@ -31,7 +33,5 @@
             </navigator>
         </view>
     </mp-form>
-
-
     <button bindtap="loginWeixin">微信登录</button>
 </view>

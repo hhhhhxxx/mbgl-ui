@@ -1,3 +1,4 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">操作条</view></cu-custom>
 <view class="app-container">
     <navigator url="/pages/patient/contact/add/add">
         <mp-icon class="add" type="field" icon="add" color="black" size="{{25}}"></mp-icon>

@@ -142,6 +142,20 @@
           "name": "",
           "pathName": "pages/patient/drug/info/info",
           "query": "drugId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/contact/chat/chart",
+          "query": "taId=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/contact/chat/chart",
+          "query": "taId=2",
           "scene": null,
           "launchMode": "default"
         }

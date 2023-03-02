@@ -9,8 +9,17 @@ App({
     onLaunch () {
         // 展示本地存储能力
 
+        wx.getSystemInfo({
+            success: e => {
+                this.globalData.StatusBar = e.statusBarHeight;
+                let custom = wx.getMenuButtonBoundingClientRect();
+                this.globalData.Custom = custom;
+                this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+            }
+        })
+
         wx.login({
-            success(res) {
+            success (res) {
                 console.log('微信登录返回值', res)
 
                 // wxApi.setSessionkey({
@@ -18,7 +27,7 @@ App({
                 // }).then(res => {
                 //     console.log(res)
                 // })
-                storage.set(key.WX_CODE,res.code)
+                storage.set(key.WX_CODE, res.code)
             }
         })
 
@@ -26,11 +35,11 @@ App({
 
     },
 
-    onShow(options) {
+    onShow (options) {
 
         const user = storage.get(key.USER)
 
-        if(user === '') {
+        if (user === '') {
             message.info('未登录')
         } else {
             this.globalData.userRole = user.roleId

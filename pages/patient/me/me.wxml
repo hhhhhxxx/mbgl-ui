@@ -1,3 +1,4 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">操作条</view></cu-custom>
 <meta name="referrer" content="no-referrer" />
 <view class="app-container">
     <view class="bg sea">

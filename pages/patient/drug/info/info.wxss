@@ -3,3 +3,17 @@
   width: 750rpx;
   height: 750rpx;
 }
+.app-container .wrap {
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+}
+.app-container .wrap .comfire-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.app-container .sheet-index--van-action-sheet {
+  padding-bottom: 150rpx !important;
+}
