@@ -156,6 +156,13 @@
           "name": "",
           "pathName": "pages/patient/contact/chat/chart",
           "query": "taId=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/drug/pay/pay",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

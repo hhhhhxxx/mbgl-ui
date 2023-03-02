@@ -13,6 +13,7 @@
         "pages/patient/contact/info/info",
         "pages/patient/drug/index/index",
         "pages/patient/drug/info/info",
+        "pages/patient/drug/pay/pay",
         "pages/doctor/me/info/info",
         "pages/doctor/me/update/update",
         "pages/doctor/me/notice/notice",

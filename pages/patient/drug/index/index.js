@@ -151,6 +151,12 @@ Page({
             shopList: shopList
         })
         console.log(e.detail);
+    },
+
+    onSubmit() {
+        wx.navigateTo({
+            url: '/pages/patient/drug/pay/pay',
+          })
     }
 });
 
