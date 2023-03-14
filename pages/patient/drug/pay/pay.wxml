@@ -2,22 +2,26 @@
     <view slot="content">操作条</view>
 </cu-custom>
 <view class="app-container">
+    <view class="head">
+        <view class="switchText">选择收收件地址</view>
+        <van-dropdown-menu>
+            <van-dropdown-item value="{{ addressIndex }}" options="{{ option1 }}" bind:change="onChangeOption" />
+        </van-dropdown-menu>
+    </view>
     <van-cell-group inset>
-        <van-cell title="收货人" value="内容" />
-        <van-cell title="收货地址" value="内容" label="描述信息" />
+        <van-cell title="收货人" value="{{addressParam.name}}" />
+        <van-cell title="收货手机" value="{{addressParam.phone}}" />
+        <van-cell title="收货地址" value="{{addressParam.area}}" />
+        <van-cell title="详细地址" value="{{addressParam.address}}" />
     </van-cell-group>
-
-
     <van-cell-group inset>
-    <block wx:for="{{shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-        <van-card class="out-card" price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" num="{{item.quantity}}" thumb="{{item.image}}">
-            <view slot="footer">
-                <van-stepper value="{{item.quantity}}" data-index="{{index}}" bind:change="onChangeShopListItemNum" />
-            </view>
-        </van-card>
-    </block>
+        <block wx:for="{{shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <van-card class="out-card" price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" num="{{item.quantity}}" thumb="{{item.image}}">
+                <view slot="footer">
+                    <van-stepper value="{{item.quantity}}" data-index="{{index}}" bind:change="onChangeShopListItemNum" />
+                </view>
+            </van-card>
+        </block>
     </van-cell-group>
-
-
-    <van-submit-bar price="{{total}}" button-text="提交订单" bind:submit="onSubmit" />
+    <van-submit-bar price="{{total}}" button-text="提交订单" bind:submit="onSubmit"/>
 </view>

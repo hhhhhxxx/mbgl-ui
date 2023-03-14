@@ -1,3 +1,6 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">操作条</view>
+</cu-custom>
 <view class="app-container">
     <mp-cells>
         <view class="weui-panel__hd">个人信息</view>
@@ -38,7 +41,5 @@
             </view>
         </view>
     </mp-cells>
-
-
 </view>
 

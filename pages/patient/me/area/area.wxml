@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">收货地址</view>
+</cu-custom>
+<view class="app-container">
+    <van-cell-group inset>
+        <block wx:for="{{addressList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <van-cell center size="large" use-label-slot="true">
+                <view class="title" slot="title">
+                    <view class="van-cell-text">{{item.name}}</view>
+                    <van-tag plain size="large" type="primary">{{item.phone}}</van-tag>
+                </view>
+                <view slot="label">
+                    <view class="van-cell-text">{{item.area}}</view>
+                    <view class="van-cell-text">{{item.address}}</view>
+                </view>
+                <van-icon slot="right-icon" name="edit" class="custom-icon" size="25px" bind:tap="toInfo" data-index="{{index}}" />
+            </van-cell>
+        </block>
+    </van-cell-group>
+
+    <van-button type="primary" bind:tap="toInfo">添加</van-button>
+</view>

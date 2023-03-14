@@ -1,4 +1,6 @@
-
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">操作条</view>
+</cu-custom>
 
 <mp-toptips msg="{{info}}" type="info" show="{{info}}" delay="1500"></mp-toptips>
 <view class="app-container">

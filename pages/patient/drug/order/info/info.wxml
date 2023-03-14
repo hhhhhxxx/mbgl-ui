@@ -1,0 +1,21 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">订单详情</view>
+</cu-custom>
+<view class="app-container">
+    <view class="outer">
+        <block wx:for="{{orderDTO.orderItemList}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2">
+            <van-card num="{{item2.quantity}}" price="{{item2.price}}" title="{{item2.name}}" thumb="{{item2.image}}" />
+        </block>
+        <van-cell title="总计" value="{{orderDTO.cost}}" />
+        <van-cell title="日期" value="{{orderDTO.createTime}}" />
+    </view>
+    <view class="outer">
+        <van-cell title="收货人" value="{{orderDTO.addressName}}" />
+        <van-cell title="收货手机" value="{{orderDTO.addressPhone}}" />
+        <van-cell title="收货地址" value="{{orderDTO.addressArea}}" />
+        <van-cell title="详细地址" value="{{orderDTO.address}}" />
+    </view>
+    <view class="outer">
+        <van-steps steps="{{ steps }}" active="{{ orderDTO.step-1 }}" direction="vertical" active-color="#07c191" />
+    </view>
+</view>

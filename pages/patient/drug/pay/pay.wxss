@@ -1,0 +1,8 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.head .switchText {
+  margin-left: 60rpx;
+}

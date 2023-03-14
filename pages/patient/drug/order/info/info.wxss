@@ -1,0 +1,7 @@
+/* pages/patient/drug/order/info/info.wxss */
+.outer {
+  margin: 40rpx;
+  padding: 20rpx;
+  box-shadow: 0px 0px 20px rgba(120, 120, 120, 0.3);
+  border-radius: 30rpx;
+}

@@ -163,6 +163,34 @@
           "name": "",
           "pathName": "pages/patient/drug/pay/pay",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/me/area/area",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/me/area/info/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/drug/pay/pay",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/drug/order/order",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

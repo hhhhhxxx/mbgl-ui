@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">我的订单</view>
+</cu-custom>
+<view class="app-container">
+    <block wx:for="{{orderDTOList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="outer" bind:tap="toInfo" data-id="{{item.id}}">
+            <block wx:for="{{item.orderItemList}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2">
+                <van-card num="{{item2.quantity}}" price="{{item2.price}}" title="{{item2.name}}" thumb="{{item2.image}}" />
+            </block>
+            <van-cell title="总计" value="{{item.cost}}"/>
+            <van-cell title="日期" value="{{item.createTime}}"/>
+        </view>
+    </block>
+</view>

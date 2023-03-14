@@ -1,9 +1,9 @@
 {
-  "component": true,
-  "usingComponents": {
-    "mp-cells": "weui-miniprogram/cells/cells",
-    "mp-cell": "weui-miniprogram/cell/cell"
-  }
-
+    "component": true,
+    "usingComponents": {
+        "mp-cells": "weui-miniprogram/cells/cells",
+        "mp-cell": "weui-miniprogram/cell/cell",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index"
+    }
 }
-

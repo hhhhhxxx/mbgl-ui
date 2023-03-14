@@ -143,13 +143,26 @@ Page({
 
     onChangeShopListItemNum(e) {
 
-        let shopList = this.data.shopList;
         let index = e.target.dataset.index
+
+        let total = this.data.total
+        let shopList = this.data.shopList;
+        
+        total = total - calUtil.calMul(shopList[index].quantity,shopList[index].price)
+
         shopList[index].quantity = e.detail
-        shopList[index].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[index].price,100),e.detail) 
+        
+        shopList[index].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[index].price, 100), e.detail)
+        
+        total = total + calUtil.calMul(shopList[index].quantity,shopList[index].price)
+        
         this.setData({
-            shopList: shopList
+            shopList: shopList,
+            total: total
         })
+
+        storage.set(key.SHOP_LIST,shopList)
+        
         console.log(e.detail);
     },
 

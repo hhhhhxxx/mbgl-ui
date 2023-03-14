@@ -23,8 +23,7 @@ Component({
             })
         },
     },
-
-
+    
     lifetimes: {
         attached: function () {
             let patientDTO = storage.get(key.USER);
