@@ -1,17 +1,40 @@
-.add {
-  margin: 16px;
-  border: 1px solid rgba(0, 0, 0, 0);
+.plus-out {
+  margin: 25rpx;
 }
-.row {
+.out-card {
+  margin: 40rpx;
+  padding: 20rpx;
+  box-shadow: 0px 0px 20px rgba(120, 120, 120, 0.3);
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: row;
   position: relative;
 }
-.row .chatBtn {
+.out-card .head {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.out-card .head image {
+  height: 100rpx;
+  width: 100rpx;
+}
+.out-card .text-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20rpx;
+}
+.out-card .text-wrap .up {
+  font-weight: bolder;
+}
+.out-card .text-wrap .bot {
+  color: #767676;
+}
+.out-card .nav-btn {
   position: absolute;
-  margin: 0;
+  right: 40rpx;
   top: 50%;
   transform: translateY(-50%);
-  right: 40rpx;
-  text-align: center;
-  width: 150rpx;
-  height: 80rpx;
 }

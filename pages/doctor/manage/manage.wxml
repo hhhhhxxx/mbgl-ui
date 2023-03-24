@@ -1,3 +1,6 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">我的</view>
+</cu-custom>
 <view class="app-container">
     <navigator class="bl" url="/pages/patient/data/heart-rate/heart-rate">
         <text>患者数据异常报告</text>

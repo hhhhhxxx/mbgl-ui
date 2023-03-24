@@ -30,7 +30,7 @@ Page({
     },
 
     search() {
-        doctorApi.getDoctorById(this.data.queryForm.doctorId).then(res => {
+        doctorApi.getDoctorByUserId(this.data.queryForm.doctorId).then(res => {
 
             let info = res.data
             info.sex = constant.toSexName(info.sex)

@@ -1,6 +1,7 @@
 import message from "../../../../utils/message";
 import storage from "../../../../utils/storage";
 import messageApi from "../../../../api/messageApi";
+import prescriptionApi from "../../../../api/prescriptionApi";
 
 var socket = null;
 
@@ -13,7 +14,7 @@ Page({
         form: {
             sendUserId: '',
             receiveUserId: '',
-            pageSize: 8,
+            pageSize: 7,
         },
 
         rules: [{
@@ -83,6 +84,13 @@ Page({
 
     onShow: function (options) {
         this.getChatList()
+        wx.createSelectorQuery().select('#cu-chat').boundingClientRect(function (rect) {
+            // 使页面滚动到底部
+            console.log(rect)
+            wx.pageScrollTo({
+                scrollTop: rect.height - 80
+            })
+        }).exec()
     },
 
     getChatList () {
@@ -94,7 +102,11 @@ Page({
             beforeForm.targetTime = that.data.chatList[0].createTime
         }
         messageApi.getBefore(beforeForm).then(res => {
-
+            res.data.forEach(element => {
+                if(element.type == 2) {
+                    element.content = JSON.parse(element.content)
+                }
+            });
             let list = [...res.data, ...this.data.chatList]
 
             that.setData({
@@ -129,14 +141,21 @@ Page({
             messageApi.send({
                 content: that.data.content,
                 sendUserId: that.data.form.sendUserId,
-                receiveUserId: that.data.form.receiveUserId
+                receiveUserId: that.data.form.receiveUserId,
+                type: 1
             }).then(res => {
 
-                let varForm = that.data.form
-                varForm.content = ''
                 that.setData({
-                    form: varForm
+                    content: ''
                 })
+
+                wx.createSelectorQuery().select('#cu-chat').boundingClientRect(function (rect) {
+                    // 使页面滚动到底部
+                    console.log(rect)
+                    wx.pageScrollTo({
+                        scrollTop: rect.height -80
+                    })
+                }).exec()
             }).catch(() => {
                 message.info('发送失败')
             })
@@ -164,6 +183,11 @@ Page({
             }
             messageApi.getBefore(beforeForm).then(res => {
 
+                res.data.forEach(element => {
+                    if(element.type == 2) {
+                        element.content = JSON.parse(element.content)
+                    }
+                });
                 let list = [...res.data, ...this.data.chatList]
 
                 that.setData({
@@ -182,6 +206,18 @@ Page({
 
             })
         }
+    },
+
+    // 跳去 处方付费
+    toPayPre(e) {
+        console.log(e)
+        let id = e.currentTarget.dataset.preid
+        prescriptionApi.valid(id).then(res=>{
+            if(res.data == true) {
+                wx.navigateTo({
+                    url: '/pages/patient/drug/pay-pre/pay-pre?id='+id,
+                  })
+            }
+        })
     }
 });
-

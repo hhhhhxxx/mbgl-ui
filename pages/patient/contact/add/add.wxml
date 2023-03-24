@@ -1,3 +1,6 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">我的医生</view>
+</cu-custom>
 <view class="app-container">
 
     <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>

@@ -1,22 +1,22 @@
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">操作条</view></cu-custom>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">我的医生</view>
+</cu-custom>
 <view class="app-container">
-    <navigator url="/pages/patient/contact/add/add">
-        <mp-icon class="add" type="field" icon="add" color="black" size="{{25}}"></mp-icon>
+    <navigator class="plus-out" url="/pages/patient/contact/add/add">
+        <van-icon name="plus" size="20px" />
     </navigator>
-
-
-    <mp-cells>
-        <block wx:for="{{doctorList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-            <mp-cell class="row" bindtap="toDoctorInfo" data-id="{{item.id}}">
-                <view slot="title" style="position: relative;margin-right: 10px;">
-                    <image src="../../../pic/head.jpg" style="width: 50px; height: 50px; display: block"/>
-                </view>
-                <view>{{item.name}}</view>
-                <view style="font-size: 13px;color: #888888;">{{item.room}}</view>
-                <navigator url="/pages/patient/contact/chat/chart?taId={{item.id}}">
-                    <button class="chatBtn">咨询</button>
-                </navigator>
-            </mp-cell>
-        </block>
-    </mp-cells>
+    <block wx:for="{{doctorList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="out-card" bindtap="toDoctorInfo" data-id="{{item.id}}">
+            <view class="head">
+                <image src="../../../pic/head.jpg" />
+            </view>
+            <view class="text-wrap">
+                <view class="up">{{item.name}}</view>
+                <view class="bot">{{item.room}}</view>
+            </view>
+            <navigator class="nav-btn" url="/pages/patient/contact/chat/chart?taId={{item.id}}">
+                <van-button round  plain type="info">咨询</van-button>
+            </navigator>
+        </view>
+    </block>
 </view>

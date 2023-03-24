@@ -28,41 +28,6 @@
         },
         {
           "name": "",
-          "pathName": "pages/patient/me/info/info",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/me/update/update",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/me/update/update",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/contact/add/add",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/contact/info/info",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
           "pathName": "pages/tab3/tab3",
           "query": "",
           "launchMode": "default",
@@ -70,49 +35,7 @@
         },
         {
           "name": "",
-          "pathName": "pages/patient/me/notice/notice",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/doctor/me/notice/notice",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
           "pathName": "pages/tab1/tab1",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/data/equipment/equipment",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/data/step-count/step-count",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/data/step-count/step-count",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/contact/chat/chart",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -132,16 +55,23 @@
           "scene": null
         },
         {
-          "name": "drugIndex",
-          "pathName": "pages/patient/drug/index/index",
+          "name": "",
+          "pathName": "pages/doctor/drug/index/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "",
-          "pathName": "pages/patient/drug/info/info",
-          "query": "drugId=1",
+          "pathName": "pages/doctor/contact/chat/chart",
+          "query": "taId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/doctor/contact/chat/chart",
+          "query": "taId=1",
           "launchMode": "default",
           "scene": null
         },
@@ -149,48 +79,6 @@
           "name": "",
           "pathName": "pages/patient/contact/chat/chart",
           "query": "taId=2",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/contact/chat/chart",
-          "query": "taId=2",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/drug/pay/pay",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/me/area/area",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/me/area/info/info",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/drug/pay/pay",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/patient/drug/order/order",
-          "query": "",
           "scene": null,
           "launchMode": "default"
         }

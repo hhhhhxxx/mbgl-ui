@@ -16,13 +16,10 @@
         "pages/patient/drug/index/index",
         "pages/patient/drug/info/info",
         "pages/patient/drug/pay/pay",
+        "pages/patient/drug/pay-pre/pay-pre",
         "pages/patient/drug/order/order",
         "pages/patient/drug/order/info/info",
-        "pages/doctor/me/info/info",
-        "pages/doctor/me/update/update",
-        "pages/doctor/me/notice/notice",
-        "pages/doctor/contact/info/info",
-        "pages/doctor/contact/chat/chart",
+        "pages/patient/manage/remind-medicine/remind-medicine",
         "pages/patient/data/heart-rate/heart-rate",
         "pages/patient/data/step-count/step-count",
         "pages/patient/data/blood-pressure/blood-pressure",
@@ -30,9 +27,16 @@
         "pages/patient/data/input/input",
         "pages/patient/data/equipment/equipment",
         "pages/patient/contact/chat/chart",
+
+        "pages/doctor/me/info/info",
+        "pages/doctor/me/update/update",
+        "pages/doctor/me/notice/notice",
+        "pages/doctor/contact/info/info",
+        "pages/doctor/contact/chat/chart",
         "pages/doctor/data/detail/detail",
         "pages/doctor/manage/manage",
-        "pages/patient/manage/remind-medicine/remind-medicine"
+        "pages/doctor/drug/index/index",
+        "pages/doctor/drug/info/info"
     ],
     "window": {
         "enablePullDownRefresh": true,

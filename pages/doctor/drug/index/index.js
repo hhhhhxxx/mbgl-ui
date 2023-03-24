@@ -2,6 +2,7 @@ import drugApi from "../../../../api/drugApi"
 import calUtil from '../../../../utils/calUtil'
 import key from '../../../../utils/key'
 import storage from '../../../../utils/storage'
+import messageApi from '../../../../api/messageApi'
 
 Page({
     data: {
@@ -18,9 +19,14 @@ Page({
         isShowPreview: false,
         isShwoShopList: false,
         shopList: [],
-        total: 0
+        total: 0,
+        patientId: null
     },
     onLoad: function (options) {
+        this.setData({
+            patientId: options.patientId
+        })
+
         this.searchDrugView();
         this.loadShopList()
     },
@@ -54,7 +60,6 @@ Page({
     },
 
     onSearch () {
-        console.log(4234)
         const that = this
         this.searchDrugView()
     },
@@ -151,24 +156,44 @@ Page({
         shopList[index].quantity = e.detail
         shopList[index].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[index].price, 100), e.detail)
         total = total + calUtil.calMul(shopList[index].quantity,shopList[index].price)
+
         
         if(e.detail == 0) {
             shopList.splice(index,1)
         }
-
+        
         this.setData({
             shopList: shopList,
             total: total
         })
-
-        storage.set(key.SHOP_LIST,shopList)
-        
     },
 
     onSubmit() {
-        wx.navigateTo({
-            url: '/pages/patient/drug/pay/pay',
-          })
+        
+        const that = this
+        let shopList = storage.getList(key.SHOP_LIST)
+        let plainList = shopList.map(e => {
+            return { 
+                id: e.id, 
+                quantity: e.quantity 
+            }
+        })
+
+        messageApi.send({
+            shopList: plainList,
+            content: "_P",
+            sendUserId: storage.getCurrentUserId(),
+            receiveUserId: that.data.patientId,
+            type: 2
+        }).finally(res=>{
+            wx.navigateBack({
+                delta: 1
+            });
+        })
+    },
+
+    onDeleteItem() {
+        let index = e.currentTarget.dataset.index
     }
 });
 

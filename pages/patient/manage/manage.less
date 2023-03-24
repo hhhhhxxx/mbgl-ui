@@ -1,21 +1,29 @@
+.app-container{
+    display: flex;
+    flex-flow:row wrap;
+}
+
 .bl {
   position: relative;
   margin-top: 20rpx;
   margin-left: 20rpx;
   height: 300rpx;
   width: 345rpx;
-  display: inline-block;
-  background-color: #8fd3e8;
-  border-radius: 10rpx;
+  display: block;
+  border-radius: 20rpx;
   box-shadow: 2px 2px 5px rgba(112, 112, 112, 0.3);
   color: rgb(0, 0, 0);
   overflow: hidden;
 
-  text {
-    display: block;
-    margin: 20rpx;
+  view {
+    text-align: center;
+    width: 200rpx;
+    position: absolute;
     font-weight: bolder;
     font-size: 28rpx;
+    color: rgb(47, 47, 47);
+    right: 25rpx;
+    bottom: 35rpx;
   }
 
 
@@ -31,21 +39,23 @@
 
     transform: rotate(45deg);
   }
+}
 
-  &:nth-child(1) {
+
+.c1 {
     background-color: #d0648a;
+
   }
 
-  &:nth-child(2) {
+ .c2 {
     background-color: #6be6c1;
   }
 
-  &:nth-child(3) {
+ .c3 {
     background-color: #b6a2de;
   }
 
 
-  &:nth-child(4) {
+ .c4 {
     background-color: #f2d643;
   }
-}

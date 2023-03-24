@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-    <view slot="content">操作条</view>
+    <view slot="content">我的</view>
 </cu-custom>
 <view class="app-container">
     <view class="bg sea">

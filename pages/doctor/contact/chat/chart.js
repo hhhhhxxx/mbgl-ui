@@ -1,26 +1,27 @@
 import message from "../../../../utils/message";
-import recordApi from "../../../../api/recordApi";
 import storage from "../../../../utils/storage";
 import messageApi from "../../../../api/messageApi";
+
+var socket = null;
 
 Page({
     data: {
         chatList: [],
         scrollTop: 0,
+        InputBottom: 0,
+        content: '',
         form: {
             sendUserId: '',
             receiveUserId: '',
-            content: '',
-            pageSize: 9,
+            pageSize: 7,
         },
 
         rules: [{
             name: 'content',
-            rules: {required: true, message: '输入不能为空'},
+            rules: { required: true, message: '输入不能为空' },
         }],
-        timer: null,
-        upTimer: null,
-        lowTimer: null
+        isLoad: false,
+        upTimer: null
     },
     onLoad: function (options) {
 
@@ -29,7 +30,7 @@ Page({
         let varForm = this.data.form
 
         varForm.sendUserId = meId
-        varForm.receiveUserId = options.taId,
+        varForm.receiveUserId = options.taId
 
         this.setData({
             form: varForm
@@ -37,32 +38,78 @@ Page({
 
         const that = this
 
-        this.data.timer = setInterval(()=>{
-            that.getAfterChatList();
-        },8000)
+        // this.data.timer = setInterval(() => {
+        //     that.getAfterChatList();
+        // }, 8000)
+
+
+        socket = wx.connectSocket({
+            url: 'ws://localhost:8080/mbgl/chat/' + meId,
+            success: res => {
+                console.info('创建连接成功');
+            }
+        })
+
+        socket.onOpen(function () {
+            console.info('连接打开成功');
+        });
+        socket.onClose(function () {
+            console.info('连接关闭成功');
+        });
+        socket.onError(function () {
+            console.info('连接报错');
+        });
+        //服务器发送监听
+        socket.onMessage(function (e) {
+            console.info(e.data);
+
+            var newMessage = JSON.parse(e.data);
+
+            let list = [...that.data.chatList, newMessage]
+
+            that.setData({
+                chatList: list
+            })
+        });
+
     },
 
-    onUnload() {
-      clearInterval(this.data.timer)
+
+
+
+    onUnload () {
+        clearInterval(this.data.timer)
     },
 
     onShow: function (options) {
         this.getChatList()
+        wx.createSelectorQuery().select('#cu-chat').boundingClientRect(function (rect) {
+            // 使页面滚动到底部
+            console.log(rect)
+            wx.pageScrollTo({
+                scrollTop: rect.height - 80
+            })
+        }).exec()
     },
 
-    getChatList() {
+    getChatList () {
 
         const that = this
-
         let beforeForm = that.data.form
 
-        if(that.data.chatList.length > 1) {
+        if (that.data.chatList.length > 1) {
             beforeForm.targetTime = that.data.chatList[0].createTime
         }
 
         messageApi.getBefore(beforeForm).then(res => {
 
-            let list = [...res.data,...this.data.chatList]
+            res.data.forEach(element => {
+                if(element.type == 2) {
+                    element.content = JSON.parse(element.content)
+                }
+            });
+
+            let list = [...res.data, ...this.data.chatList]
 
             that.setData({
                 chatList: list
@@ -70,77 +117,105 @@ Page({
         })
     },
 
-    getAfterChatList() {
 
+    // 输入提高
+    InputFocus (e) {
+        this.setData({
+            InputBottom: e.detail.height
+        })
+    },
+    InputBlur (e) {
+        this.setData({
+            InputBottom: 0
+        })
+    },
+
+    formInputChange (e) {
+        const { field } = e.currentTarget.dataset
+        this.setData({
+            content: e.detail.value
+        })
+    },
+    submitForm () {
         const that = this
 
-        let afterForm = that.data.form
+        if (that.data.content != '') {
+            messageApi.send({
+                content: that.data.content,
+                sendUserId: that.data.form.sendUserId,
+                receiveUserId: that.data.form.receiveUserId,
+                type: 1
+            }).then(res => {
 
-        let len = that.data.chatList.length
+                that.setData({
+                    content: ''
+                })
 
-        if(len > 0) {
-            afterForm.targetTime = that.data.chatList[len-1].createTime
+                wx.createSelectorQuery().select('#cu-chat').boundingClientRect(function (rect) {
+                    // 使页面滚动到底部
+                    console.log(rect)
+                    wx.pageScrollTo({
+                        scrollTop: rect.height - 80
+                    })
+                }).exec()
+            }).catch(() => {
+                message.info('发送失败')
+            })
+        } else {
+            message.error('输入为空')
         }
 
-        messageApi.getAfter(afterForm).then(res => {
-            let list = [...this.data.chatList,...res.data,]
-            that.setData({
-                chatList: list,
-                scrollTop: list.length * 415
+    },
+
+    onPullDownRefresh () {
+        const that = this
+        // 上拉刷新
+        console.log(that.data.isLoad)
+        if (!that.loading) {
+
+            this.setData({
+                isLoad: true
             })
 
 
-        })
+            let beforeForm = that.data.form
 
-    },
-
-    formInputChange(e) {
-        const {field} = e.currentTarget.dataset
-        this.setData({
-            [`form.${field}`]: e.detail.value
-        })
-    },
-
-    submitForm() {
-
-        const that = this
-
-        this.selectComponent('#form').validateField('content', (valid, errors) => {
-            console.log('valid', valid, errors)
-            if (!valid) {
-                message.error(errors.message)
-            } else {
-                console.log(this.data.form)
-
-                messageApi.send({
-                    content: that.data.form.content,
-                    sendUserId: that.data.form.sendUserId,
-                    receiveUserId: that.data.form.receiveUserId
-                }).then(res => {
-                    let varForm = that.data.form
-                    varForm.content = ''
-                    that.setData({
-                        form: varForm
-                    })
-                    this.getAfterChatList()
-                }).catch(() => {
-                        message.info('发送失败')
-                    })
+            if (that.data.chatList.length > 1) {
+                beforeForm.targetTime = that.data.chatList[0].createTime
             }
-        })
+            messageApi.getBefore(beforeForm).then(res => {
+                // 处方
+                res.data.forEach(element => {
+                    if(element.type == 2) {
+                        element.content = JSON.parse(element.content)
+                    }
+                });
+
+                let list = [...res.data, ...this.data.chatList]
+
+                that.setData({
+                    chatList: list
+                })
+
+                let do1 = () => {
+                    wx.stopPullDownRefresh()
+                    that.setData({
+                        chatList: list,
+                        isLoad: false
+                    })
+                }
+
+                setTimeout(do1, 450)
+
+            })
+        }
     },
-    upper(e) {
-        console.log(e)
 
-        clearTimeout(this.data.upTimer)
-        this.data.upTimer = setTimeout(this.getChatList,1500)
-    },
+    
 
-    lower(e) {
-
-        clearTimeout(this.data.lowTimer)
-        this.data.lowTimer = setTimeout(this.getAfterChatList,1500)
-        console.log(e)
+    toDrug() {
+        wx.navigateTo({
+            url: `/pages/doctor/drug/index/index?patientId=${this.data.form.receiveUserId}`
+        });
     }
 });
-

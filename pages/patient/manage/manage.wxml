@@ -1,19 +1,20 @@
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">操作条</view></cu-custom>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">智能管家</view>
+</cu-custom>
 <view class="app-container">
-    <navigator class="bl" url="/pages/patient/data/heart-rate/heart-rate">
-        <text>查看数据异常</text>
+    <navigator url="/pages/patient/data/heart-rate/heart-rate">
+        <view class="bl c2">
+            <view>查看健康报告</view>
+        </view>
     </navigator>
-    <navigator class="bl" url="/pages/patient/data/heart-rate/heart-rate">
-        <text>查看健康报告</text>
+    <navigator url="/pages/patient/data/step-count/step-count">
+        <view class="bl c3">
+            <view>定时提醒吃药</view>
+        </view>
     </navigator>
-    <navigator class="bl" url="/pages/patient/data/step-count/step-count">
-        <text>定时提醒吃药</text>
-    </navigator>
-    <navigator class="bl" url="/pages/patient/data/step-count/step-count">
-        <text>膳食管理</text>
-    </navigator>
-
-        <navigator class="bl" url="/pages/patient/drug/index/index">
-        <text>网上药店</text>
+    <navigator url="/pages/patient/drug/index/index">
+        <view class="bl c4">
+            <view>网上药店</view>
+        </view>
     </navigator>
 </view>

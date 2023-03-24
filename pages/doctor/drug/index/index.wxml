@@ -12,7 +12,7 @@
     </van-tabs>
     <mp-cells>
         <block wx:for="{{drugList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-            <navigator url="/pages/patient/drug/info/info?drugId={{item.id}}">
+            <navigator url="/pages/doctor/drug/info/info?drugId={{item.id}}&patientId={{patientId}}">
                 <van-card price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" thumb="https://img.yzcdn.cn/vant/cat.jpeg" />
             </navigator>
         </block>
@@ -27,10 +27,10 @@
         <block wx:for="{{shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
             <van-card class="out-card" price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" num="{{item.quantity}}" thumb="">
                 <view slot="footer">
-                    <van-stepper min="0" value="{{item.quantity}}" data-index="{{index}}" bind:change="onChangeShopListItemNum"/>
+                    <van-stepper  min="0" value="{{item.quantity}}" data-index="{{index}}" bind:change="onChangeShopListItemNum"/>
                 </view>
             </van-card>
         </block>
-        <van-submit-bar price="{{total}}" button-text="提交订单" bind:submit="onSubmit" />
+        <van-submit-bar type="primary" price="{{total}}" button-text="发送药单" bind:submit="onSubmit" />
     </van-action-sheet>
 </view>
