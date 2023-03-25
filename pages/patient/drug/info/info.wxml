@@ -16,7 +16,7 @@
     </van-cell-group>
     <van-goods-action>
         <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
-        <van-goods-action-icon icon="cart-o" text="购物清单" info="{{shopList.length}}" bind:click="onClickShopList" />
+        <van-goods-action-icon icon="cart-o" text="购物清单" info="{{shopLength}}" bind:click="onClickShopList" />
         <van-goods-action-button text="选购" bind:click="onClickPreview" />
     </van-goods-action>
     <!-- 弹出 -->
@@ -35,15 +35,6 @@
             <van-button class="comfire-btn" round type="info" bind:tap="saveShop">保存</van-button>
         </view>
     </van-action-sheet>
-    <!-- 购物清单 -->
-    <van-action-sheet class="shopList" show="{{isShwoShopList}}" title="购物清单" bind:close="onCloseShopList">
-        <block wx:for="{{shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-            <van-card class="out-card" price="{{item.tempPrice}}" desc="{{item.info}}" title="{{item.name}}" num="{{item.quantity}}" thumb="">
-                <view slot="footer">
-                    <van-stepper value="{{item.quantity}}" data-index="{{index}}" bind:change="onChangeShopListItemNum"/>
-                </view>
-            </van-card>
-        </block>
-        <van-submit-bar price="{{total}}" button-text="提交订单" bind:submit="onSubmit" />
-    </van-action-sheet>
+
+    <shop-list id="shop-list" show="{{isShowShopList}}" bindchange="onChangeShopListLength" bindsubmit="onSubmit"></shop-list>
 </view>

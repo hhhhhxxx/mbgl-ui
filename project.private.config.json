@@ -79,6 +79,13 @@
           "name": "",
           "pathName": "pages/patient/contact/chat/chart",
           "query": "taId=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/doctor/drug/index/index",
+          "query": "patientId=1",
           "scene": null,
           "launchMode": "default"
         }

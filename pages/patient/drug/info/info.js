@@ -12,11 +12,10 @@ Page({
     data: {
         drug: '',
         isShowPreview: false,
-        isShwoShopList: false,
+        isShowShopList: false,
         tempPrice: -1,
         quantity: 1,
-        shopList: [],
-        total: 0
+        shopLength: 0
     },
 
     /**
@@ -74,82 +73,35 @@ Page({
     },
 
     // -----购物清单   
-    onClickShopList () {
-        this.setData({
-            isShwoShopList: true
-        })
 
-
-        let shopList = storage.getList(key.SHOP_LIST)
-        let total = 0
-
-
-        shopList.forEach(element => {
-            total = calUtil.calAdd(total, calUtil.calMul(element.price, element.quantity))
-        });
-        console.log(total)
-        this.setData({
-            shopList: shopList,
-            total: total
-        })
-    },
-
-    onCloseShopList () {
-        this.setData({
-            isShwoShopList: false
-        })
-        storage.set(key.SHOP_LIST, this.data.shopList)
-    },
 
     saveShop () {
-        let shopList = storage.getList(key.SHOP_LIST)
-
-        let flag = true
-
-        for (let i = 0; i < shopList.length; i++) {
-            if (this.data.drug.id == shopList[i].id) {
-                console.log(shopList[i].quantity + this.data.quantity)
-                shopList[i].quantity = shopList[i].quantity + this.data.quantity
-                shopList[i].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[i].price, 100), shopList[i].quantity)
-                flag = false
-                break;
-            }
+        let drug = {
+            ...this.data.drug,
+            quantity: this.data.quantity
         }
-
-        if (flag) {
-            shopList.push({
-                ...this.data.drug,
-                tempPrice: calUtil.calMul(calUtil.calDiv(this.data.drug.price, 100), this.data.quantity),
-                quantity: this.data.quantity
-            })
-        }
-        storage.set(key.SHOP_LIST, shopList)
+        // 页面获取自定义组件实例
+        let shopList = this.selectComponent('#shop-list'); 
+        // 通过实例调用组件事件
+        shopList.saveShop(drug);
+        
         this.onClosePreview()
 
     },
 
-    onChangeShopListItemNum (e) {
+        // -----购物清单   
+        onClickShopList () {
+            this.setData({
+                isShowShopList: true
+            })
+        },
+    
+        onChangeShopListLength(e) {
+            this.setData({
+                shopLength: e.detail.len
+            })
+        },
 
-        let index = e.target.dataset.index
-        let total = this.data.total
-        let shopList = this.data.shopList;
-        
-        total = total - calUtil.calMul(shopList[index].quantity,shopList[index].price)
-        shopList[index].quantity = e.detail
-        shopList[index].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[index].price, 100), e.detail)
-        total = total + calUtil.calMul(shopList[index].quantity,shopList[index].price)
-
-        
-        if(e.detail == 0) {
-            shopList.splice(index,1)
-        }
-        
-        this.setData({
-            shopList: shopList,
-            total: total
-        })
-        console.log(e.detail);
-    },
 
     onSubmit () {
         wx.navigateTo({

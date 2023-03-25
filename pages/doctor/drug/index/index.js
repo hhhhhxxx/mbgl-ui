@@ -16,11 +16,10 @@ Page({
             classification: '',
             name: ''
         },
+        patientId: null,
         isShowPreview: false,
-        isShwoShopList: false,
-        shopList: [],
-        total: 0,
-        patientId: null
+        isShowShopList: false,
+        shopLength: 0,
     },
     onLoad: function (options) {
         this.setData({
@@ -28,7 +27,6 @@ Page({
         })
 
         this.searchDrugView();
-        this.loadShopList()
     },
 
     onShow () {
@@ -39,7 +37,7 @@ Page({
 
 
     bindPickerChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
+
         this.setData({
             index: e.detail.value
         })
@@ -63,6 +61,7 @@ Page({
         const that = this
         this.searchDrugView()
     },
+
     onClear () {
         let query = this.data.queryForm;
         query.name = ''
@@ -88,83 +87,18 @@ Page({
         this.searchDrugView()
     },
 
+
+    
     // -----购物清单   
     onClickShopList () {
         this.setData({
-            isShwoShopList: true
-        })
-        this.loadShopList()
-    },
-
-    loadShopList() {
-
-        let shopList = storage.getList(key.SHOP_LIST)
-        let total = 0
-
-
-        shopList.forEach(element => {
-            total = calUtil.calAdd(total, calUtil.calMul(element.price, element.quantity))
-        });
-        console.log(total)
-        this.setData({
-            shopList: shopList,
-            total: total
+            isShowShopList: true
         })
     },
 
-    onCloseShopList () {
+    onChangeShopListLength(e) {
         this.setData({
-            isShwoShopList: false
-        })
-        storage.set(key.SHOP_LIST, this.data.shopList)
-    },
-
-    saveShop () {
-        let shopList = storage.getList(key.SHOP_LIST)
-
-        let flag = true
-
-        for (let i = 0; i < shopList.length; i++) {
-            if (this.data.drug.id == shopList[i].id) {
-                console.log(shopList[i].quantity + this.data.quantity)
-                shopList[i].quantity = shopList[i].quantity + this.data.quantity
-                shopList[i].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[i].price, 100), shopList[i].quantity)
-                flag = false
-                break;
-            }
-        }
-
-        if (flag) {
-            shopList.push({
-                ...this.data.drug,
-                tempPrice: calUtil.calMul(calUtil.calDiv(this.data.drug.price, 100), this.data.quantity),
-                quantity: this.data.quantity
-            })
-        }
-        storage.set(key.SHOP_LIST, shopList)
-        this.onClosePreview()
-
-    },
-
-    onChangeShopListItemNum(e) {
-
-        let index = e.target.dataset.index
-        let total = this.data.total
-        let shopList = this.data.shopList;
-        
-        total = total - calUtil.calMul(shopList[index].quantity,shopList[index].price)
-        shopList[index].quantity = e.detail
-        shopList[index].tempPrice = calUtil.calMul(calUtil.calDiv(shopList[index].price, 100), e.detail)
-        total = total + calUtil.calMul(shopList[index].quantity,shopList[index].price)
-
-        
-        if(e.detail == 0) {
-            shopList.splice(index,1)
-        }
-        
-        this.setData({
-            shopList: shopList,
-            total: total
+            shopLength: e.detail.len
         })
     },
 
@@ -190,11 +124,8 @@ Page({
                 delta: 1
             });
         })
-    },
-
-    onDeleteItem() {
-        let index = e.currentTarget.dataset.index
     }
+
 });
 
 
