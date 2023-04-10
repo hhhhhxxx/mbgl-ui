@@ -1,14 +1,16 @@
 import doctorApi from '../../../api/doctorApi'
 import storage from "../../../utils/storage";
 import patientApi from "../../../api/patientApi";
+import employeeApi from '../../../api/employeeApi'
 
 Component({
 
     data: {
         doctorList: [],
+        employeeList: [],
         queryForm: {
             pageIndex: 1,
-            pageSize: 10,
+            pageSize: 100,
             patientUserId: null,
         }
     },
@@ -42,7 +44,12 @@ Component({
                     doctorList: res.data.records
                 })
             })
-
+            
+            employeeApi.list().then(res=>{
+                that.setData({
+                    employeeList: res.data
+                })
+            })
         },
 
         toDoctorInfo (e) {

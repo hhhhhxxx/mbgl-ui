@@ -66,6 +66,11 @@ Page({
 
             var newMessage = JSON.parse(e.data);
 
+            // 如果是处方 还要把处方也解析了
+            if (newMessage.type == 2) {
+                newMessage.content = JSON.parse(newMessage.content)
+            }
+
             let list = [...that.data.chatList, newMessage]
 
             that.setData({
@@ -103,7 +108,7 @@ Page({
         }
         messageApi.getBefore(beforeForm).then(res => {
             res.data.forEach(element => {
-                if(element.type == 2) {
+                if (element.type == 2) {
                     element.content = JSON.parse(element.content)
                 }
             });
@@ -153,7 +158,7 @@ Page({
                     // 使页面滚动到底部
                     console.log(rect)
                     wx.pageScrollTo({
-                        scrollTop: rect.height -80
+                        scrollTop: rect.height - 80
                     })
                 }).exec()
             }).catch(() => {
@@ -184,7 +189,7 @@ Page({
             messageApi.getBefore(beforeForm).then(res => {
 
                 res.data.forEach(element => {
-                    if(element.type == 2) {
+                    if (element.type == 2) {
                         element.content = JSON.parse(element.content)
                     }
                 });
@@ -209,14 +214,14 @@ Page({
     },
 
     // 跳去 处方付费
-    toPayPre(e) {
+    toPayPre (e) {
         console.log(e)
         let id = e.currentTarget.dataset.preid
-        prescriptionApi.valid(id).then(res=>{
-            if(res.data == true) {
+        prescriptionApi.valid(id).then(res => {
+            if (res.data == true) {
                 wx.navigateTo({
-                    url: '/pages/patient/drug/pay-pre/pay-pre?id='+id,
-                  })
+                    url: '/pages/patient/drug/pay-pre/pay-pre?id=' + id,
+                })
             }
         })
     }

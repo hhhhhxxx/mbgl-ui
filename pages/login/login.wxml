@@ -33,5 +33,5 @@
             </navigator>
         </view>
     </mp-form>
-    <button bindtap="loginWeixin">微信登录</button>
+    <van-button bindtap="loginWeixin">微信登录</van-button>
 </view>

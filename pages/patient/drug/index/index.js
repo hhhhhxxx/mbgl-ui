@@ -6,7 +6,8 @@ import storage from '../../../../utils/storage'
 Page({
     data: {
         active: 0,
-        array: ['全部', '中成药', '中药饮片', '西药', '其他'],
+        array: [],
+
         index: 0,
         drugList: [],
         queryForm: {
@@ -20,6 +21,13 @@ Page({
     },
     onLoad: function (options) {
         this.searchDrugView();
+        const that = this
+        drugApi.typeList().then(res=>{
+            console.log(res)
+            that.setData({
+                array: res.data
+            })
+        })
     },
 
     onShow () {

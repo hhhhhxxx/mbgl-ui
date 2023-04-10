@@ -5,5 +5,7 @@ export default {
 
     decodeRunData: (query) => post('/wx/decode',query),
 
-    getNowStep: (query) => post('/wx/getNowStep',query)
+    getNowStep: (query) => post('/wx/getNowStep',query),
+
+    sendMessage: (query) => post('/wx/send/message',query)
 }

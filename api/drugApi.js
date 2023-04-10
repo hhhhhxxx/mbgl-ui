@@ -5,4 +5,7 @@ export default {
     getInfoById: (id) => get('/drug/get/info/'+id),
     getPreShopList: (preid) => get('/drug/get/pre/shoplist/'+preid),
 
+    getClazz:() => get('/drug/get/class'),
+
+    typeList: () => get('/drug/type/list'),
 }

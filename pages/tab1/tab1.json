@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "patient-data": "/pages/patient/data/data",
-    "doctor-data": "/pages/doctor/data/data"
+    "doctor-data": "/pages/doctor/data/data",
+    "employee-drug": "/pages/employee/drug/index/index"
   }
 }

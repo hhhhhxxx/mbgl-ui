@@ -144,7 +144,5 @@ Page({
                 url: '/pages/patient/drug/order/order',
               })       
         })
-
-      
     }
 })

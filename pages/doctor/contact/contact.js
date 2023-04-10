@@ -4,6 +4,10 @@ import patientApi from "../../../api/patientApi";
 
 Component({
 
+    options: {
+        styleIsolation: 'apply-shared'
+    },
+
     data: {
         patientList: [],
         queryForm: {

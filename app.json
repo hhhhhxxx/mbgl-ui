@@ -36,10 +36,18 @@
         "pages/doctor/data/detail/detail",
         "pages/doctor/manage/manage",
         "pages/doctor/drug/index/index",
-        "pages/doctor/drug/info/info"
+        "pages/doctor/drug/info/info",
+        "pages/doctor/drug/prescription/prescription",
+        "pages/doctor/drug/prescription/info/info",
+        
+        "pages/employee/me/info/info",
+        "pages/employee/me/update/update",
+        "pages/employee/me/notice/notice",
+        "pages/employee/drug/info/info",
+        "pages/employee/contact/chat/chart"
     ],
     "window": {
-        "enablePullDownRefresh": true,
+        "enablePullDownRefresh": false,
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "Weixin",

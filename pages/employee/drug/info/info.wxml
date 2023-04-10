@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">商品详情</view>
+</cu-custom>
+<view class="app-container">
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+    <van-cell-group inset>
+        <van-cell title="名称" value="{{drug.name}}" />
+        <van-cell title="价格" value="{{drug.tempPrice}}" />
+        <van-cell title="详情" value="{{drug.info}}" />
+        <van-cell title="用法" value="{{drug.usages}}" />
+        <van-cell title="单位" value="{{drug.unit}}" />
+        <van-cell title="有效期" value="{{drug.validMonth}}" />
+        <van-cell title="处方药" value="{{drug.prescription}}" />
+        <van-cell title="种类" value="{{drug.classification}}" />
+    </van-cell-group>
+</view>

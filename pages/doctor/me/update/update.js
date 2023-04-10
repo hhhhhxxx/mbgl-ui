@@ -63,7 +63,7 @@ Page({
         const field = this.data.field
         doctorApi.getDoctorByUserId(user.id).then(res => {
             this.setData({
-                [`form.${field}`]: res.response[`${field}`]
+                [`form.${field}`]: res.data[`${field}`]
             })
 
             if (field == 'sex') {

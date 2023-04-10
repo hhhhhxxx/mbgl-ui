@@ -1,5 +1,5 @@
 // app.js
-import { patientTabBar, doctorTabBar } from '/utils/tabBarUrl.js'
+import { patientTabBar, doctorTabBar,employeeTabBar } from '/utils/tabBarUrl.js'
 import storage from "./utils/storage";
 import key from "./utils/key";
 import message from "./utils/message";
@@ -9,6 +9,7 @@ App({
     onLaunch () {
         // 展示本地存储能力
 
+        // 自定义导航栏设置
         wx.getSystemInfo({
             success: e => {
                 this.globalData.StatusBar = e.statusBarHeight;
@@ -22,12 +23,13 @@ App({
             success (res) {
                 console.log('微信登录返回值', res)
 
-                // wxApi.setSessionkey({
-                //     code: res.code
-                // }).then(res => {
-                //     console.log(res)
-                // })
                 storage.set(key.WX_CODE, res.code)
+
+                wxApi.setSessionkey({
+                    code: res.code
+                }).then(res => {
+                    console.log(res)          
+                })   
             }
         })
 
@@ -51,6 +53,9 @@ App({
                 break;
             case 2:
                 this.globalData.tabBarList = doctorTabBar
+                break;
+            case 3:
+                this.globalData.tabBarList = employeeTabBar
                 break;
             default:
                 break;

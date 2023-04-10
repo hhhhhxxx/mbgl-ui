@@ -86,6 +86,55 @@
           "name": "",
           "pathName": "pages/doctor/drug/index/index",
           "query": "patientId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/manage/remind-medicine/remind-medicine",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/drug/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/data/step-count/step-count",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patient/data/equipment/equipment",
+          "query": "field=stepCount",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/doctor/drug/index/index",
+          "query": "patientId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/doctor/drug/prescription/prescription",
+          "query": "patientId=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/doctor/drug/prescription/info/info",
+          "query": "index=0",
           "scene": null,
           "launchMode": "default"
         }

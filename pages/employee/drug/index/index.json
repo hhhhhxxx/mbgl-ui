@@ -1,0 +1,16 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-card": "@vant/weapp/card/index",
+        "van-search": "@vant/weapp/search/index",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "van-stepper": "@vant/weapp/stepper/index",
+        "van-action-sheet": "@vant/weapp/action-sheet/index",
+        "van-submit-bar": "@vant/weapp/submit-bar/index",
+        "van-goods-action": "@vant/weapp/goods-action/index",
+        "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+        "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+        "shop-list": "../../../../components/shop-list/shop-list"
+    }
+}

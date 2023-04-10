@@ -27,6 +27,8 @@ async function request(url, params, header, method = 'get') {
                 } else {
                     if(res.data.hasOwnProperty('message') && res.data.message != '') {
                         message.error(res.data.message)
+                    } else {
+                        message.error(res.data.data)
                     }
                     reject(res.data)
                 }

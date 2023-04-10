@@ -9,4 +9,7 @@ export default {
     updatePatient: (query) => post('/patient/update',query),
 
     getPatientPage: (query) => get('/patient/page/list',query),
+
+    listConsult: () => get('/patient/list/consult'),
+    
 }

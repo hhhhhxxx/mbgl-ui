@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-gradual-orange" isCustom="{{true}}">
+    <view slot="content">处方</view>
+</cu-custom>
+<van-toast id="van-toast" />
+<view class="app-container">
+    <view class="out-card">
+
+        <block wx:for="{{preItem.shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <van-card num="{{item.quantity}}" desc="{{item.unit}}" title="{{item.name}}" thumb="{{item.image}}" />
+        </block>
+    </view>
+    <view class="out-card">
+        <van-cell-group>
+            <van-field size="large" label="名称" value="{{ preItem.name }}" placeholder="请输入名称" border="{{ false }}" required data-field="name" bind:change="formInputChange" />
+            <van-field size="large" label="说明" value="{{ preItem.info }}" placeholder="请输入说明" border="{{ false }}" required data-field="info" bind:change="formInputChange" />
+        </van-cell-group>
+    </view>
+    <view class="out-card btn-outer">
+        <van-button class="f-btn" round type="primary" bindtap="onSave">保存</van-button>
+        <van-button round type="info" bindtap="onDel">删除</van-button>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-orange" isCustom="{{true}}">
+    <view slot="content">处方列表</view>
+</cu-custom>
+<van-toast id="van-toast" />
+<view class="app-container">
+    <view class="out-card">
+        <van-radio-group value="{{ radio }}" bind:change="onChange">
+            <van-cell-group inset>
+                <block wx:for="{{prescriptionList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                    <van-cell center size="large" use-label-slot="true">
+                        <view class="title" slot="title">
+                            <view class="van-cell-text">{{item.name}}</view>
+                        </view>
+                        <view slot="label">
+                            <view class="van-cell-text">{{item.info}}</view>
+                        </view>
+                        <van-icon  slot="right-icon" name="edit" class="custom-icon" size="25px" bind:tap="toInfo" data-index="{{index}}" />
+                        <van-radio slot="icon" name="{{index}}" />
+                    </van-cell>
+                </block>
+            </van-cell-group>
+        </van-radio-group>
+    </view>
+    <view class="out-card btn-outer">
+        <van-button class="btn" round type="primary" bind:tap="toDrugStore">添加</van-button>
+        <van-button wx:if="{{show}}" round type="info" bind:tap="onSubmit">发送</van-button>
+    </view>
+</view>

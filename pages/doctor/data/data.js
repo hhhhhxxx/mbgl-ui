@@ -4,6 +4,10 @@ import patientApi from "../../../api/patientApi";
 
 Component({
 
+    options: {
+        styleIsolation: 'apply-shared'
+    },
+
     data: {
         patientList: [],
         queryForm: {
@@ -16,7 +20,7 @@ Component({
     lifetimes: {
         attached: function () {
 
-            let queryForm =  this.data.queryForm
+            let queryForm = this.data.queryForm
 
             queryForm.doctorUserId = storage.getCurrentUserId()
 
@@ -37,7 +41,7 @@ Component({
     methods: {
         search () {
             const that = this
-            patientApi.getPatientPage(this.data.queryForm).then(res=>{
+            patientApi.getPatientPage(this.data.queryForm).then(res => {
                 that.setData({
                     patientList: res.data.records
                 })

@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">定时提醒</view>
+</cu-custom>
+<van-toast id="van-toast" />
+<view class="app-container">
+    <view class="out-card">
+        <van-cell-group>
+            <van-field label="药品" value="{{ form.drugName }}" data-field="drugName" placeholder="请输入药品名称" border="{{ false }}" bind:change="formInputChange" />
+            <van-field label="用药建议" value="{{ form.advice }}" data-field="advice" placeholder="请输入用药建议" border="{{ false }}" bind:change="formInputChange" />
+            <van-field label="剂量" value="{{ form.num }}" data-field="num" placeholder="请输入剂量" border="{{ false }}" bind:change="formInputChange" />
+            <van-field label="备注" value="{{ form.info }}" data-field="info" placeholder="请输入备注" border="{{ false }}" bind:change="formInputChange" />
+            <van-field label="时间" value="{{ date }}" disabled placeholder="请输入时间" border="{{ false }}" bind:tap="onShowTimePicker" />
+        </van-cell-group>
+    </view>
+    <view class="btn-outer">
+        <van-button type="info" round bind:tap="onclick">定时吃药</van-button>
+    </view>
+    <van-action-sheet show="{{ show }}" title="选择时间" bind:close="onCloseTimePicker">
+        <van-datetime-picker 
+        cancel-button-text="" 
+        bind:cancel="onCloseTimePicker" 
+        bind:confirm="onCloseTimePicker" 
+        type="datetime"
+        value="{{ form.time }}" 
+        data-field="time" min-date="{{ minDate }}" max-date="{{ maxDate }}" 
+        bind:input="formInputChange"/>
+    </van-action-sheet>
+</view>

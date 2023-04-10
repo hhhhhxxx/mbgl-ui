@@ -4,6 +4,7 @@ import recordApi from "../../../../api/recordApi";
 
 
 import * as echarts from '../../../../ec-canvas/echarts';
+import storage from "../../../../utils/storage";
 
 Page({
     data: {
@@ -42,7 +43,8 @@ Page({
 
                 wxApi.getNowStep({
                     encryptedData: res.encryptedData,
-                    iv: res.iv
+                    iv: res.iv,
+                    userId: storage.getCurrentUserId()
                 }).then(res => {
                     console.log(res)
 

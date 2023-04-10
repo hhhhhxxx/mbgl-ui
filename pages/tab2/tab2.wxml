@@ -1,6 +1,9 @@
 <block wx:if="{{userRole === 1}}">
     <patient-manage></patient-manage>
 </block>
-<block wx:if="{{userRole === 2}}">
+<block wx:elif="{{userRole === 2}}">
     <doctor-manage></doctor-manage>
+</block>
+<block wx:elif="{{userRole === 3}}">
+    <employee-contact></employee-contact>
 </block>

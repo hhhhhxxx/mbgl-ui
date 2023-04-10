@@ -1,8 +1,8 @@
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-    <view slot="content">操作条</view>
+<cu-custom bgColor="bg-gradual-orange" isCustom="{{true}}">
+    <view slot="content">{{drug.name}}</view>
 </cu-custom>
 <view class="app-container">
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+    <image src="{{drug.image}}" mode="aspectFill" />
     <van-cell-group inset>
         <van-cell title="名称" value="{{drug.name}}" />
         <van-cell title="价格" value="{{drug.tempPrice}}" />
@@ -15,11 +15,11 @@
     </van-cell-group>
     <van-goods-action>
         <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
-        <van-goods-action-icon icon="cart-o" text="购物清单" info="{{shopLength}}" bind:click="onClickShopList" />
-        <van-goods-action-button text="选购" bind:click="onClickPreview" />
+        <van-goods-action-icon icon="cart-o" text="处方清单" info="{{shopLength}}" bind:click="onClickShopList" />
+        <van-goods-action-button text="加入" bind:click="onClickPreview" />
     </van-goods-action>
     <!-- 弹出 -->
-    <van-action-sheet show="{{isShowPreview}}" title="选购" bind:close="onClosePreview">
+    <van-action-sheet show="{{isShowPreview}}" title="加入新建处方" bind:close="onClosePreview">
         <van-cell-group inset>
             <van-cell title="名称" value="{{drug.name}}" />
             <van-cell title="库存" value="99" />

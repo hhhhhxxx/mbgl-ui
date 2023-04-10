@@ -45,3 +45,22 @@ export const doctorTabBar = [
         icon: "icon-my"
     }
 ]
+
+// 员工
+export const employeeTabBar = [
+    {
+        pagePath: "/pages/tab1/tab1",
+        text: "数据",
+        icon: "icon-my"
+    },
+    {
+        pagePath: "/pages/tab2/tab2",
+        text: "客服",
+        icon: "icon-manage"
+    },
+    {
+        pagePath: "/pages/tab3/tab3",
+        text: "我的",
+        icon: "icon-shouye"
+    },
+]

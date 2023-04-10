@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "patient-contact": "/pages/patient/contact/contact",
-    "doctor-contact": "/pages/doctor/contact/contact"
+    "doctor-contact": "/pages/doctor/contact/contact",
+    "employee-me": "/pages/employee/me/me"
   }
 }

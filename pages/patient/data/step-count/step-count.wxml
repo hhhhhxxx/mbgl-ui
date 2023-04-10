@@ -1,17 +1,17 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-    <view slot="content">操作条</view>
+    <view slot="content">步数</view>
 </cu-custom>
-
 <view class="app-container">
-    <navigator url="/pages/patient/data/input/input?field=stepCount">
-        <button>输入步数</button>
-    </navigator>
 
-    <navigator url="/pages/patient/data/equipment/equipment?field=stepCount">
-        <button>获取手环步数</button>
-    </navigator>
-
-    <button bindtap="getWxStep">获取微信步数</button>
+    <view class="head">
+        <navigator url="/pages/patient/data/input/input?field=stepCount">
+            <van-button icon="star-o" type="default">输入步数</van-button>
+        </navigator>
+        <navigator url="/pages/patient/data/equipment/equipment?field=stepCount">
+            <van-button icon="star-o" type="info">获取手环步数</van-button>
+        </navigator>
+        <van-button icon="star-o" type="primary" bindtap="getWxStep">获取微信步数</van-button>
+    </view>
 
     <scroll-view class="scroll" scroll-x="true">
         <view class="container">
@@ -19,4 +19,3 @@
         </view>
     </scroll-view>
 </view>
-

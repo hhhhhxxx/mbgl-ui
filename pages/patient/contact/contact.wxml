@@ -5,18 +5,36 @@
     <navigator class="plus-out" url="/pages/patient/contact/add/add">
         <van-icon name="plus" size="20px" />
     </navigator>
-    <block wx:for="{{doctorList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-        <view class="out-card" bindtap="toDoctorInfo" data-id="{{item.id}}">
-            <view class="head">
-                <image src="../../../pic/head.jpg" />
+    <van-cell-group title="医生">
+        <block wx:for="{{doctorList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <view class="out-card" bindtap="toDoctorInfo" data-id="{{item.id}}">
+                <view class="head">
+                    <image src="../../../pic/head.jpg" />
+                </view>
+                <view class="text-wrap">
+                    <view class="up">{{item.name}}</view>
+                    <view class="bot">{{item.room}}</view>
+                </view>
+                <navigator class="nav-btn" url="/pages/patient/contact/chat/chart?taId={{item.id}}">
+                    <van-button round plain type="info">咨询</van-button>
+                </navigator>
             </view>
-            <view class="text-wrap">
-                <view class="up">{{item.name}}</view>
-                <view class="bot">{{item.room}}</view>
+        </block>
+    </van-cell-group>
+    <van-cell-group title="客服">
+        <block wx:for="{{employeeList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <view class="out-card" data-id="{{item.id}}">
+                <view class="head">
+                    <image src="../../../pic/head.jpg" />
+                </view>
+                <view class="text-wrap">
+                    <view class="up">{{item.name}}</view>
+                </view>
+                <navigator class="nav-btn" url="/pages/patient/contact/chat/chart?taId={{item.id}}">
+                    <van-button round plain type="info">咨询</van-button>
+                </navigator>
             </view>
-            <navigator class="nav-btn" url="/pages/patient/contact/chat/chart?taId={{item.id}}">
-                <van-button round  plain type="info">咨询</van-button>
-            </navigator>
-        </view>
-    </block>
+        </block>
+    </van-cell-group>
+
 </view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-form": "weui-miniprogram/form/form"
+  },
+  "enablePullDownRefresh": true
+}

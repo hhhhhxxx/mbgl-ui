@@ -98,25 +98,43 @@ Page({
 
 
     onSubmit () {
+
         const that = this
         let shopList = storage.getList(key.SHOP_LIST)
-        let plainList = shopList.map(e => {
-            return {
-                id: e.id,
-                quantity: e.quantity
-            }
+
+        let preList = storage.getList(key.PRESCRIPTION_LIST);
+
+        preList.push({
+            shopList: shopList,
+            info: "",
+            name: "处方"+(preList.length+1)
         })
 
-        messageApi.send({
-            shopList: plainList,
-            content: "_P",
-            sendUserId: storage.getCurrentUserId(),
-            receiveUserId: that.data.patientId,
-            type: 2
-        }).finally(res => {
-            wx.navigateBack({
-                delta: 2
-            });
-        })
+        storage.set(key.PRESCRIPTION_LIST,preList);
+
+        wx.navigateBack({
+            delta: 2
+        });
+
+        // const that = this
+        // let shopList = storage.getList(key.SHOP_LIST)
+        // let plainList = shopList.map(e => {
+        //     return {
+        //         id: e.id,
+        //         quantity: e.quantity
+        //     }
+        // })
+
+        // messageApi.send({
+        //     shopList: plainList,
+        //     content: "_P",
+        //     sendUserId: storage.getCurrentUserId(),
+        //     receiveUserId: that.data.patientId,
+        //     type: 2
+        // }).finally(res => {
+        //     wx.navigateBack({
+        //         delta: 2
+        //     });
+        // })
     }
 })

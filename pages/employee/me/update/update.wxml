@@ -1,0 +1,46 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">我的</view>
+</cu-custom>
+<view class="app-container">
+    <mp-form-page title="更新信息">
+        <mp-form id="form" rules="{{rules}}" models="{{form}}">
+
+            <block wx:if="{{field === 'name'}}">
+                <label>
+                    <mp-cell prop="name" title="姓名" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.name}}" data-field="name" class="weui-input"
+                               placeholder="请输入姓名"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'age'}}">
+                <label>
+                    <mp-cell prop="age" title="年龄" ext-class="">
+                        <input bindinput="formInputChange" value="{{form.age}}" data-field="age" class="weui-input"
+                               placeholder="请输入年龄"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'phone'}}">
+                <label>
+                    <mp-cell prop="phone" title="手机号" ext-class=" weui-cell_vcode">
+                        <input bindinput="formInputChange" value="{{form.phone}}" data-field="phone" class="weui-input"
+                               placeholder="请输入手机号"/>
+                    </mp-cell>
+                </label>
+            </block>
+            <block wx:if="{{field === 'sex'}}">
+                <mp-cells title="性别">
+                    <mp-checkbox-group prop="sex" multi="{{false}}" bindchange="sexChange">
+                        <mp-checkbox wx:for="{{sexItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}"
+                                     checked="{{item.checked}}"></mp-checkbox>
+                    </mp-checkbox-group>
+                </mp-cells>
+            </block>
+        </mp-form>
+
+        <view slot="button">
+            <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+        </view>
+    </mp-form-page>
+</view>

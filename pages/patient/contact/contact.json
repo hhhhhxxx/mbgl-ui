@@ -7,6 +7,9 @@
     "mp-slideview": "weui-miniprogram/slideview/slideview",
 
     "mp-searchbar": "weui-miniprogram/searchbar/searchbar",
-    "mp-icon": "weui-miniprogram/icon/icon"
+    "mp-icon": "weui-miniprogram/icon/icon",
+    
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
   }
 }

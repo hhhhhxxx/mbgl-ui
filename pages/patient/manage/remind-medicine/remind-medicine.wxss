@@ -1,0 +1,8 @@
+.btn-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.van-field__label--disabled {
+  color: black !important;
+}

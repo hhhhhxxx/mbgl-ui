@@ -1,19 +1,23 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-    <view slot="content">我的</view>
+    <view slot="content">我的患者</view>
 </cu-custom>
 <view class="app-container">
-    <mp-cells>
+
+
+    <van-cell-group title="患者">
         <block wx:for="{{patientList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-            <mp-cell class="row" bindtap="toPatientInfo" data-id="{{item.id}}">
-                <view  slot="title" style="position: relative;margin-right: 10px;">
-                    <image src="../../../pic/head.jpg" style="width: 50px; height: 50px; display: block"/>
+            <view class="out-card" bindtap="toPatientInfo" data-id="{{item.id}}">
+                <view class="head">
+                    <image src="../../../pic/head.jpg" />
                 </view>
-                <view>{{item.name}}</view>
-                <view style="font-size: 13px;color: #888888;">{{item.age}}岁</view>
-                <navigator url="/pages/doctor/contact/chat/chart?taId={{item.id}}">
-                    <button class="chatBtn">聊天</button>
+                <view class="text-wrap">
+                    <view class="up">{{item.name}}</view>
+                    <view class="bot">{{item.age}}岁</view>
+                </view>
+                <navigator class="nav-btn" url="/pages/doctor/contact/chat/chart?taId={{item.id}}">
+                    <van-button round plain type="info">回复</van-button>
                 </navigator>
-            </mp-cell>
+            </view>
         </block>
-    </mp-cells>
+    </van-cell-group>
 </view>

@@ -1,0 +1,14 @@
+{
+    "usingComponents": {
+        "van-field": "@vant/weapp/field/index",
+        "van-area": "@vant/weapp/area/index",
+        "van-action-sheet": "@vant/weapp/action-sheet/index",
+
+        "van-card": "@vant/weapp/card/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-steps": "@vant/weapp/steps/index"
+
+
+    }
+}

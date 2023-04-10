@@ -1,20 +1,40 @@
-.add {
-  margin: 16px;
+
+
+.out-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: relative;
+
+    .head{
+        height: 100rpx;
+        width: 100rpx;
+        image{
+            height: 100rpx;
+            width: 100rpx;
+        }
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20rpx;
+    }
+
+    .text-wrap{
+        display: flex;
+        flex-direction: column;
+        margin-right: 20rpx;
+        .up{
+            font-weight: bolder;
+        }
+        .bot{
+            color: rgb(118, 118, 118);
+        }
+    }
+    .nav-btn{
+        position: absolute;
+        right: 30rpx;
+        top: 50%;
+        transform: translateY(-50%); 
+    }
 }
 
-
-.row {
-  position: relative;
-
-}
-
-.chatBtn{
-  position: absolute;
-  top:50%;
-  transform: translateY(-50% - 35px);
-  right: 20rpx;
-
-  text-align: center;
-  width: 150rpx;
-  height: 80rpx;
-}

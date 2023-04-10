@@ -1,0 +1,28 @@
+.app-container {
+  background-color: #e1e1e1;
+}
+.app-container .cu-chat {
+  padding-bottom: 25rpx;
+}
+.app-container .pre {
+  width: 600rpx;
+}
+.app-container .pre .preMsg {
+  padding: 10rpx;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+}
+.app-container .pre .preMsg .tittle {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15rpx;
+}
+.app-container .pre .preMsg .row {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5rpx;
+  text-align: center;
+}

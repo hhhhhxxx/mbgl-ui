@@ -1,9 +1,9 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-    <view slot="content">操作条</view>
+    <view slot="content">{{drug.name}}</view>
 </cu-custom>
 <van-toast id="van-toast" />
 <view class="app-container">
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" />
+    <image src="{{drug.image}}" mode="aspectFill" />
     <van-cell-group inset>
         <van-cell title="名称" value="{{drug.name}}" />
         <van-cell title="价格" value="{{drug.tempPrice}}" />

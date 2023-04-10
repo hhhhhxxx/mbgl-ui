@@ -65,6 +65,11 @@ Page({
 
             var newMessage = JSON.parse(e.data);
 
+            // 如果是处方 还要把处方也解析了
+            if(newMessage.type == 2) {
+                newMessage.content = JSON.parse(newMessage.content)
+            }
+
             let list = [...that.data.chatList, newMessage]
 
             that.setData({
@@ -215,7 +220,7 @@ Page({
 
     toDrug() {
         wx.navigateTo({
-            url: `/pages/doctor/drug/index/index?patientId=${this.data.form.receiveUserId}`
+            url: `/pages/doctor/drug/prescription/prescription?patientId=${this.data.form.receiveUserId}`
         });
     }
 });

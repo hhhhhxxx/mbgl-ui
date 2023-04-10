@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "patient-manage": "/pages/patient/manage/manage",
-    "doctor-manage": "/pages/doctor/manage/manage"
+    "doctor-manage": "/pages/doctor/manage/manage",
+    "employee-contact": "/pages/employee/contact/contact"
   }
 }
 

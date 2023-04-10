@@ -1,5 +1,5 @@
 // index.js
-import { patientTabBar, doctorTabBar } from '../../utils/tabBarUrl'
+import { patientTabBar, doctorTabBar, employeeTabBar } from '../../utils/tabBarUrl'
 
 import userApi from "../../api/userApi"
 import message from "../../utils/message"
@@ -70,11 +70,16 @@ Page({
 
         if (roleId === 1) {
             app.globalData.tabBarList = patientTabBar
-            app.globalData.userRole = 1
+
         } else if (roleId === 2) {
             app.globalData.tabBarList = doctorTabBar
-            app.globalData.userRole = 2
+
+        } else if (roleId === 3) {
+            app.globalData.tabBarList = employeeTabBar
+
         }
+        
+        app.globalData.userRole = roleId
 
         wx.switchTab({
             url: '/pages/tab1/tab1'
@@ -84,18 +89,18 @@ Page({
 
     loginWeixin (e) {
         const that = this
-        
+
         wx.login({
-            success(res) {
+            success (res) {
                 userApi.wxLogin({
                     code: res.code
                 }).then(res => {
                     let user = res.data
                     message.success("登录成功")
                     that.setRole(res.data.roleId)
-                    storage.set(key.USER,user)
+                    storage.set(key.USER, user)
 
-     
+
                 })
             }
         })

@@ -3,32 +3,29 @@
   margin-top: 10rpx;
   text-align: center;
 }
+.app-container .btnHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .app-container .item {
-  width: 710rpx;
   height: 120rpx;
   position: relative;
-  background-color: #e3dcdc;
-  margin: 15rpx 20rpx;
-  box-shadow: 1px 1px 1px 1px rgba(193, 193, 193, 0.3);
-  border-radius: 8px;
 }
 .app-container .item .label {
   position: absolute;
   display: block;
-  left: 20rpx;
+  left: 25rpx;
   text-align: center;
+  font-weight: bolder;
   top: 50%;
   transform: translateY(-50%);
 }
 .app-container .item .connectBtn {
   position: absolute;
-  right: 25rpx;
-  margin: 0;
-  width: 120rpx;
-  height: 80rpx;
-  border-radius: 7px;
+  right: 30rpx;
   top: 50%;
-  transform: translateY(-44%);
+  transform: translateY(-50%);
 }
 .app-container .item .active {
   background-color: red !important;

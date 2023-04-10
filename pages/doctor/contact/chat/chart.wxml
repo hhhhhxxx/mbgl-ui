@@ -58,7 +58,7 @@
     <!-- 输入 -->
     <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
         <view class="action">
-            <van-icon name="shop-o" size="50rpx" bindtap="toDrug" />
+            <button class="cu-btn bg-blue shadow" bindtap="toDrug">处方</button>
         </view>
         <input bindinput="formInputChange" value="{{content}}" data-field="content" class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
         <button class="cu-btn bg-green shadow" bindtap="submitForm">发送</button>

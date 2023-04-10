@@ -2,12 +2,12 @@ import drugApi from "../../../../api/drugApi"
 import calUtil from '../../../../utils/calUtil'
 import key from '../../../../utils/key'
 import storage from '../../../../utils/storage'
-import messageApi from '../../../../api/messageApi'
+
 
 Page({
     data: {
         active: 0,
-        array: ['全部', '中成药', '中药饮片', '西药', '其他'],
+        array: [],
         index: 0,
         drugList: [],
         queryForm: {
@@ -27,6 +27,13 @@ Page({
         })
 
         this.searchDrugView();
+        const that = this
+        drugApi.typeList().then(res => {
+            console.log(res)
+            that.setData({
+                array: res.data
+            })
+        })
     },
 
     onShow () {
@@ -65,8 +72,8 @@ Page({
     onClear () {
         let query = this.data.queryForm;
         query.name = ''
-        this.setData({ 
-            queryForm: query 
+        this.setData({
+            queryForm: query
         })
         this.searchDrugView()
     },
@@ -88,7 +95,7 @@ Page({
     },
 
 
-    
+
     // -----购物清单   
     onClickShopList () {
         this.setData({
@@ -96,34 +103,32 @@ Page({
         })
     },
 
-    onChangeShopListLength(e) {
+    onChangeShopListLength (e) {
         this.setData({
             shopLength: e.detail.len
         })
     },
 
-    onSubmit() {
-        
+    onSubmit () {
+
         const that = this
         let shopList = storage.getList(key.SHOP_LIST)
-        let plainList = shopList.map(e => {
-            return { 
-                id: e.id, 
-                quantity: e.quantity 
-            }
-        })
 
-        messageApi.send({
-            shopList: plainList,
-            content: "_P",
-            sendUserId: storage.getCurrentUserId(),
-            receiveUserId: that.data.patientId,
-            type: 2
-        }).finally(res=>{
-            wx.navigateBack({
-                delta: 1
-            });
+        let preList = storage.getList(key.PRESCRIPTION_LIST);
+
+        preList.push({
+            shopList: shopList,
+            info: "",
+            name: "处方"+(preList.length+1)
         })
+        
+
+        storage.set(key.PRESCRIPTION_LIST,preList);
+        
+        wx.navigateBack({
+            delta: 1
+        });
+
     }
 
 });

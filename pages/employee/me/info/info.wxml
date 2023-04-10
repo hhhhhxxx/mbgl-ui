@@ -1,0 +1,18 @@
+
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="content">我的</view>
+</cu-custom>
+<view class="app-container">
+    <mp-cells>
+        <view class="weui-panel__hd">个人信息</view>
+        <mp-cell link url="/pages/employee/me/update/update?field=name" value="姓名"
+                 footer="{{employeeInfo.name}}"></mp-cell>
+        <mp-cell link url="/pages/employee/me/update/update?field=age" value="年龄" footer="{{employeeInfo.age}}"></mp-cell>
+        <mp-cell link url="/pages/employee/me/update/update?field=sex" value="性别" footer="{{employeeInfo.sex}}"></mp-cell>
+        <mp-cell link url="/pages/employee/me/update/update?field=phone" value="手机号"
+                 footer="{{employeeInfo.phone}}"></mp-cell>
+    </mp-cells>
+
+
+</view>
+

@@ -1,35 +1,27 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-    <view slot="content">操作条</view>
+    <view slot="content">连接设备</view>
 </cu-custom>
-
 <mp-toptips msg="{{info}}" type="info" show="{{info}}" delay="1500"></mp-toptips>
 <view class="app-container">
-
     <view class="head">下拉刷新设备列表</view>
-
-
-<!--    <button bindtap="zhendong">振动</button>-->
-    <block wx:if="{{field === 'stepCount'}}">
-        <button bindtap="getStep">获取步数：{{stepCount}}</button>
-    </block>
-    <block wx:elif="{{field === 'heartRate'}}">
-        <button bindtap="getHeartRate">获取心率：{{hrvalue}}</button>
-    </block>
-
+    <view class="btnHead">
+        <block wx:if="{{field === 'stepCount'}}">
+            <van-button icon="completed"  type="info" bindtap="getStep">获取步数：{{stepCount}}</van-button>
+        </block>
+        <block wx:elif="{{field === 'heartRate'}}">
+            <van-button icon="completed" type="info" bindtap="getHeartRate">获取心率：{{hrvalue}}</van-button>
+        </block>
+    </view>
     <view class="head">当前蓝牙设备数量：{{devices.length}}</view>
-
-    <block wx:if="{{devices.length > 0}}"
-           wx:for="{{devices}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-        <view class="item">
+    <block wx:if="{{devices.length > 0}}" wx:for="{{devices}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="item out-card">
             <view class="label">{{item.name}}</view>
-            <button  wx:if="{{!item.active}}" type="primary" class="connectBtn" id="{{item.deviceId}}" bindtap="createConnection">连接</button>
-            <button  wx:if="{{item.active}}" type="warn" class="connectBtn" id="{{item.deviceId}}" bindtap="closeConnection">断开</button>
+            <van-button round type="primary" wx:if="{{!item.active}}" class="connectBtn" id="{{item.deviceId}}" bindtap="createConnection">
+                连接
+            </van-button>
+            <van-button round type="danger" wx:if="{{item.active}}" class="connectBtn" id="{{item.deviceId}}" bindtap="closeConnection">
+                断开
+            </van-button>
         </view>
-
     </block>
 </view>
-
-
-
-
-

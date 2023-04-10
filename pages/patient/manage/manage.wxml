@@ -7,7 +7,7 @@
             <view>查看健康报告</view>
         </view>
     </navigator>
-    <navigator url="/pages/patient/data/step-count/step-count">
+    <navigator url="/pages/patient/manage/remind-medicine/remind-medicine">
         <view class="bl c3">
             <view>定时提醒吃药</view>
         </view>
