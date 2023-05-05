@@ -1,0 +1,8 @@
+.btn-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-outer .f-btn {
+  margin-right: 30rpx;
+}

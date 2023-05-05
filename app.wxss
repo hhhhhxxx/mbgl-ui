@@ -48,3 +48,9 @@ page{
     border-radius: 30rpx;
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

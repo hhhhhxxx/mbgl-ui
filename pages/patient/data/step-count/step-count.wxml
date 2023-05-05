@@ -13,9 +13,9 @@
         <van-button icon="star-o" type="primary" bindtap="getWxStep">获取微信步数</van-button>
     </view>
 
-    <scroll-view class="scroll" scroll-x="true">
+    <view class="out-card">
         <view class="container">
             <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
         </view>
-    </scroll-view>
+    </view>
 </view>

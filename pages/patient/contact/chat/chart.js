@@ -213,16 +213,14 @@ Page({
         }
     },
 
-    // 跳去 处方付费
-    toPayPre (e) {
-        console.log(e)
-        let id = e.currentTarget.dataset.preid
-        prescriptionApi.valid(id).then(res => {
-            if (res.data == true) {
-                wx.navigateTo({
-                    url: '/pages/patient/drug/pay-pre/pay-pre?id=' + id,
-                })
-            }
-        })
+
+    toPreRead (e) {
+        let id = e.currentTarget.dataset.id
+
+        wx.navigateTo({
+            url: `/pages/patient/drug/prescription/read/read?id=${id}`
+        });
     }
+
+
 });

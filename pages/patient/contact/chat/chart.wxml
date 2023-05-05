@@ -30,21 +30,19 @@
                 <block wx:elif="{{item.type == 2}}">
                     <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
                     <view class="main">
-                        <view class="content bg-yellow shadow pre" bind:tap="toPayPre" data-preId="{{item.prescriptionId}}">
+                        <view class="content bg-yellow shadow pre" bindtap="toPreRead" data-id="{{item.prescriptionId}}">
                             <view class="preMsg">
                                 <view class="tittle">药方(点击查看)</view>
                                 <view class="row">
-                                    <view class="seq">序号</view>
                                     <view class="name">名称</view>
-                                    <view class="quantity">数量</view>
                                     <view class="unit">单位</view>
+                                    <view class="quantity">数量</view>
                                 </view>
                                 <block wx:for="{{item.content}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2">
                                     <view class="row">
-                                        <view class="seq">{{index2 + 1}}.</view>
-                                        <view class="name">{{item2.name}}</view>
-                                        <view class="quantity">{{item2.quantity}}</view>
-                                        <view class="unit">{{item2.unit}}</view>
+                                        <view class="rowItem name">{{item2.name}}</view>
+                                        <view class="rowItem unit">{{item2.unit}}</view>
+                                        <view class="rowItem quantity">{{item2.quantity}}</view>
                                     </view>
                                 </block>
                             </view>

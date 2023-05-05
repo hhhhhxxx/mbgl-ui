@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-gradual-orange" isCustom="{{true}}">
+    <view slot="content">处方</view>
+</cu-custom>
+<van-toast id="van-toast" />
+<view class="app-container">
+    <view class="out-card">
+        <block wx:for="{{prescriptionDTO.shopList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <van-card num="{{item.quantity}}" desc="{{item.unit}}" title="{{item.name}}" thumb="{{item.image}}" />
+        </block>
+    </view>
+    <view class="out-card">
+        <van-cell-group>
+            <van-cell size="large" title="状态" >
+                <van-button wx:if="{{prescriptionDTO.state == 1}}" 
+                type="warning" slot="right-icon" size="small">已使用</van-button>
+                                <van-button wx:if="{{prescriptionDTO.state == 0}}" 
+                type="primary" slot="right-icon" size="small">未使用</van-button>
+            </van-cell>
+            <van-cell size="large" title="说明" value="{{ prescriptionDTO.info }}"/>
+            <van-cell size="large" title="开方医生" value="{{ prescriptionDTO.doctorName }}"/>
+            <van-cell size="large" title="创建时间" value="{{ prescriptionDTO.createTime }}"/>
+        </van-cell-group>
+    </view>
+</view>

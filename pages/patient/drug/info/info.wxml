@@ -6,12 +6,21 @@
     <image src="{{drug.image}}" mode="aspectFill" />
     <van-cell-group inset>
         <van-cell title="名称" value="{{drug.name}}" />
+        <van-cell title="是否是处方药">
+            <van-button wx:if="{{drug.prescription == 1}}" type="warning" slot="right-icon" size="small">
+                处方药
+            </van-button>
+            <van-button wx:if="{{drug.prescription == 0}}" type="primary" slot="right-icon" size="small">
+                非处方药
+            </van-button>
+        </van-cell>
         <van-cell title="价格" value="{{drug.tempPrice}}" />
+        <van-cell title="单位" value="{{drug.unit}}" />
         <van-cell title="详情" value="{{drug.info}}" />
         <van-cell title="用法" value="{{drug.usages}}" />
-        <van-cell title="单位" value="{{drug.unit}}" />
-        <van-cell title="有效期" value="{{drug.validMonth}}" />
-        <van-cell title="处方药" value="{{drug.prescription}}" />
+        <van-cell title="注意事项" value="{{drug. warn}}" />
+        <van-cell title="生产厂家" value="{{drug.prodComp}}" />
+          <van-cell title="有效期" value="{{drug.validMonth}}月" />
         <van-cell title="种类" value="{{drug.classification}}" />
     </van-cell-group>
     <van-goods-action>
@@ -35,6 +44,5 @@
             <van-button class="comfire-btn" round type="info" bind:tap="saveShop">保存</van-button>
         </view>
     </van-action-sheet>
-
     <shop-list id="shop-list" show="{{isShowShopList}}" bindchange="onChangeShopListLength" bindsubmit="onSubmit"></shop-list>
 </view>

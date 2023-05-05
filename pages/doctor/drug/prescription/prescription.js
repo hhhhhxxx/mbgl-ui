@@ -99,7 +99,8 @@ Page({
                 content: "_P",
                 sendUserId: storage.getCurrentUserId(),
                 receiveUserId: that.data.patientId,
-                type: 2
+                type: 2,
+                info: item.info
             }).finally(res => {
 
                 wx.navigateBack({

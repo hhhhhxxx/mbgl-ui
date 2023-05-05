@@ -66,7 +66,7 @@ Page({
             var newMessage = JSON.parse(e.data);
 
             // 如果是处方 还要把处方也解析了
-            if(newMessage.type == 2) {
+            if (newMessage.type == 2) {
                 newMessage.content = JSON.parse(newMessage.content)
             }
 
@@ -109,7 +109,7 @@ Page({
         messageApi.getBefore(beforeForm).then(res => {
 
             res.data.forEach(element => {
-                if(element.type == 2) {
+                if (element.type == 2) {
                     element.content = JSON.parse(element.content)
                 }
             });
@@ -191,7 +191,7 @@ Page({
             messageApi.getBefore(beforeForm).then(res => {
                 // 处方
                 res.data.forEach(element => {
-                    if(element.type == 2) {
+                    if (element.type == 2) {
                         element.content = JSON.parse(element.content)
                     }
                 });
@@ -216,11 +216,17 @@ Page({
         }
     },
 
-    
-
-    toDrug() {
+    toDrug () {
         wx.navigateTo({
             url: `/pages/doctor/drug/prescription/prescription?patientId=${this.data.form.receiveUserId}`
+        });
+    },
+
+    toPreRead (e) {
+        let id = e.currentTarget.dataset.id
+
+        wx.navigateTo({
+            url: `/pages/doctor/drug/prescription/read/read?id=${id}`
         });
     }
 });

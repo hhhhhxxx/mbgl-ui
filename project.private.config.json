@@ -135,6 +135,13 @@
           "name": "",
           "pathName": "pages/doctor/drug/prescription/info/info",
           "query": "index=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/doctor/contact/chat/chart",
+          "query": "taId=1",
           "scene": null,
           "launchMode": "default"
         }

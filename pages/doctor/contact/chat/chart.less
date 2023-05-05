@@ -22,11 +22,26 @@
     
             .row{
                 display: flex;
-                flex: 1;
+                // flex: 1;
                 flex-direction: row;
                 justify-content: space-between;
                 margin: 5rpx;
                 text-align: center; 
+
+                .rowItem{
+                    overflow: hidden;    
+                    text-overflow:ellipsis;    
+                    white-space: nowrap;  
+                }
+
+                .quantity{
+                    width: 60rpx;  
+                }
+
+                .name,.unit {
+                    width: 135rpx;  
+                   
+                }
             }
         }
     }

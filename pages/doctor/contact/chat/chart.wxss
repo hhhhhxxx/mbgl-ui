@@ -20,9 +20,20 @@
 }
 .app-container .pre .preMsg .row {
   display: flex;
-  flex: 1;
   flex-direction: row;
   justify-content: space-between;
   margin: 5rpx;
   text-align: center;
+}
+.app-container .pre .preMsg .row .rowItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-container .pre .preMsg .row .quantity {
+  width: 60rpx;
+}
+.app-container .pre .preMsg .row .name,
+.app-container .pre .preMsg .row .unit {
+  width: 135rpx;
 }

@@ -27,6 +27,7 @@
         "pages/patient/data/input/input",
         "pages/patient/data/equipment/equipment",
         "pages/patient/contact/chat/chart",
+        "pages/patient/drug/prescription/read/read",
 
         "pages/doctor/me/info/info",
         "pages/doctor/me/update/update",
@@ -39,6 +40,7 @@
         "pages/doctor/drug/info/info",
         "pages/doctor/drug/prescription/prescription",
         "pages/doctor/drug/prescription/info/info",
+        "pages/doctor/drug/prescription/read/read",
         
         "pages/employee/me/info/info",
         "pages/employee/me/update/update",

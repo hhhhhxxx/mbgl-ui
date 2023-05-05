@@ -2,7 +2,7 @@
   background-color: #e1e1e1;
 }
 .app-container .cu-chat {
-  padding-bottom: 25  rpx;
+  padding-bottom: 25rpx;
 }
 .app-container .pre {
   width: 600rpx;
@@ -24,4 +24,16 @@
   justify-content: space-between;
   margin: 5rpx;
   text-align: center;
+}
+.app-container .pre .preMsg .row .rowItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-container .pre .preMsg .row .quantity {
+  width: 60rpx;
+}
+.app-container .pre .preMsg .row .name,
+.app-container .pre .preMsg .row .unit {
+  width: 135rpx;
 }
